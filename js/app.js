@@ -302,13 +302,19 @@ nav.innerHTML = groups.map(([icon, title, links], index) => `<details class="nav
 
 const classMenuLink = nav.querySelector('a[href="#classes"]');
 const archetypeNavLinks = [...nav.querySelectorAll('.nav-sub-link')];
-let archetypeNavToggle = null;
 if (classMenuLink && archetypeNavLinks.length) {
-  archetypeNavToggle = document.createElement('button');
-  archetypeNavToggle.className = 'nav-archetype-toggle';
-  archetypeNavToggle.type = 'button';
-  archetypeNavToggle.setAttribute('aria-controls', 'classCards');
-  classMenuLink.insertAdjacentElement('afterend', archetypeNavToggle);
+  const toggle = document.createElement('button');
+  toggle.className = 'nav-archetype-toggle';
+  toggle.type = 'button';
+  classMenuLink.insertAdjacentElement('afterend', toggle);
+  const setArchetypeNavVisibility = collapsed => {
+    archetypeNavLinks.forEach(link => { link.hidden = collapsed; });
+    toggle.textContent = collapsed ? '▸ Mostrar arquétipos' : '⌄ Ocultar arquétipos';
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    localStorage.setItem('t20-nav-archetypes', collapsed ? 'collapsed' : 'expanded');
+  };
+  setArchetypeNavVisibility(localStorage.getItem('t20-nav-archetypes') === 'collapsed');
+  toggle.addEventListener('click', () => setArchetypeNavVisibility(!archetypeNavLinks[0].hidden));
 }
 
 // Cada item de navegação tem uma âncora própria. Estes blocos são marcadores de conteúdo
@@ -333,25 +339,18 @@ if (classesSection) {
 
   const catalogToggle = document.querySelector('#catalogToggle');
   const classCards = document.querySelector('#classCards');
-
-  // Um único estado controla tanto a lista de arquétipos na barra lateral
-  // quanto o catálogo de classes exibido no conteúdo principal, evitando
-  // que os dois fiquem dessincronizados.
-  const setArchetypesVisibility = collapsed => {
+  const setCatalogVisibility = collapsed => {
     classCards.hidden = collapsed;
-    archetypeNavLinks.forEach(link => { link.hidden = collapsed; });
     catalogToggle.setAttribute('aria-expanded', String(!collapsed));
     catalogToggle.textContent = collapsed ? 'Mostrar arquétipos' : 'Ocultar arquétipos';
-    if (archetypeNavToggle) {
-      archetypeNavToggle.setAttribute('aria-expanded', String(!collapsed));
-      archetypeNavToggle.textContent = collapsed ? '▸ Mostrar arquétipos' : '⌄ Ocultar arquétipos';
-    }
-    localStorage.setItem('t20-archetypes', collapsed ? 'collapsed' : 'expanded');
+    localStorage.setItem('t20-class-catalog', collapsed ? 'collapsed' : 'expanded');
   };
-
-  setArchetypesVisibility(localStorage.getItem('t20-archetypes') === 'collapsed');
-  catalogToggle.addEventListener('click', () => setArchetypesVisibility(!classCards.hidden));
-  if (archetypeNavToggle) archetypeNavToggle.addEventListener('click', () => setArchetypesVisibility(!classCards.hidden));
+  setCatalogVisibility(localStorage.getItem('t20-class-catalog') === 'collapsed');
+  catalogToggle.addEventListener('click', () => setCatalogVisibility(!classCards.hidden));
+  nav.addEventListener('click', event => {
+    const anchor = event.target.closest('a')?.getAttribute('href');
+    if (anchor && classCards.hidden && classCards.querySelector(anchor)) setCatalogVisibility(false);
+  });
 }
 
 const body = document.body;
@@ -384,3 +383,75 @@ const results = document.querySelector('#searchResults');
 const pages = [...document.querySelectorAll('[data-page]')];
 search.addEventListener('input', () => { const query = search.value.trim().toLocaleLowerCase('pt-BR'); if (!query) return results.classList.remove('visible'); const matches = pages.filter(page => page.textContent.toLocaleLowerCase('pt-BR').includes(query)).slice(0, 6); results.innerHTML = matches.length ? matches.map(page => `<a href="#${page.id || 'top'}"><strong>${page.dataset.page}</strong><br><small>${page.textContent.trim().replace(/\s+/g, ' ').slice(0, 80)}…</small></a>`).join('') : '<a>Nenhuma regra encontrada.</a>'; results.classList.add('visible'); });
 results.addEventListener('click', () => { results.classList.remove('visible'); search.value = ''; });
+
+// ==========================================
+// CATÁLOGO DE ORIGENS
+// ==========================================
+const originCategories = [
+  {
+    icon: '👷', name: 'Trabalhadores', description: 'Pessoas comuns, acostumadas ao trabalho duro ou à rotina diária.',
+    list: ['Mecânico', 'Eletricista', 'Encanador', 'Pedreiro', 'Carpinteiro', 'Caminhoneiro', 'Motorista de ônibus', 'Agricultor', 'Pescador', 'Lenhador', 'Faxineiro', 'Cozinheiro', 'Garçom', 'Operador de máquinas']
+  },
+  {
+    icon: '🏥', name: 'Saúde', description: 'Profissionais focados em manter as outras pessoas vivas e funcionais.',
+    list: ['Médico', 'Enfermeiro', 'Paramédico', 'Veterinário', 'Farmacêutico', 'Psicólogo', 'Dentista']
+  },
+  {
+    icon: '🚓', name: 'Segurança', description: 'Treinados para lidar com riscos, conflitos e proteção civil ou militar.',
+    list: ['Policial Militar', 'Policial Civil', 'Bombeiro', 'Guarda Municipal', 'Vigilante', 'Agente Penitenciário', 'Militar']
+  },
+  {
+    icon: '🎓', name: 'Educação', description: 'Detentores de conhecimento teórico, acadêmico e de pesquisa.',
+    list: ['Professor', 'Universitário', 'Pesquisador', 'Bibliotecário']
+  },
+  {
+    icon: '💻', name: 'Tecnologia', description: 'Mentes lógicas voltadas para a manutenção e criação de sistemas.',
+    list: ['Programador', 'Técnico em Informática', 'Engenheiro', 'Técnico em Eletrônica', 'Analista de Redes']
+  },
+  {
+    icon: '🚗', name: 'Transporte', description: 'Especialistas em mobilidade, vias urbanas e veículos.',
+    list: ['Motoboy', 'Taxista', 'Motorista de Aplicativo', 'Piloto', 'Maquinista']
+  },
+  {
+    icon: '🎭', name: 'Social', description: 'Lidam com o público, persuasão, leis e influência cultural.',
+    list: ['Jornalista', 'Influenciador', 'Advogado', 'Político', 'Pastor', 'Padre', 'Empresário', 'Comerciante']
+  },
+  {
+    icon: '🏕', name: 'Sobrevivência', description: 'Acostumados com o ambiente selvagem, isolamento e navegação.',
+    list: ['Escoteiro', 'Guia Turístico', 'Guarda Florestal', 'Caçador', 'Montanhista', 'Aventureiro']
+  },
+  {
+    icon: '⚙', name: 'Industrial', description: 'Acostumados ao ambiente fabril e maquinário pesado.',
+    list: ['Soldador', 'Metalúrgico', 'Operador de Empilhadeira', 'Mecânico Industrial']
+  },
+  {
+    icon: '🎨', name: 'Diversos', description: 'Vocações variadas que sobrevivem à margem do convencional.',
+    list: ['Músico', 'Ator', 'Fotógrafo', 'Segurança Particular', 'Lutador', 'Criminoso', 'Presidiário', 'Morador de Rua']
+  }
+];
+
+// Injetar o HTML na seção "origens" (que foi gerada dinamicamente pelo loop do menu)
+setTimeout(() => {
+  const origensSection = document.getElementById('origens');
+  if (origensSection) {
+    origensSection.innerHTML = `
+      <h3>O que você fazia antes do fim?</h3>
+      <p>Sua origem define o que você sabia fazer antes do mundo acabar. No ApocalipseT20, ela pode render perícias bônus, itens iniciais ou vantagens exclusivas na sua jornada de sobrevivência.</p>
+      
+      <div class="origins-grid">
+        ${originCategories.map(cat => `
+          <article class="origin-card">
+            <div class="origin-header">
+              <span class="origin-icon">${cat.icon}</span>
+              <h4>${cat.name}</h4>
+            </div>
+            <p class="origin-desc">${cat.description}</p>
+            <ul class="origin-list">
+              ${cat.list.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </article>
+        `).join('')}
+      </div>
+    `;
+  }
+}, 100);
