@@ -1,66 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Livro digital do Sistema T20 — Apocalipse." />
+    <title>Sistema T20 — Apocalipse</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Ir para o conteúdo</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">☣</span>
+          <div><strong>Sistema T20</strong><span>Apocalipse</span></div>
+        </div>
+        <nav id="navigation"></nav>
+        <p class="sidebar-footer">Livro de regras digital<br />Versão de desenvolvimento</p>
+      </aside>
 
-<head>
+      <div class="main-area">
+        <header class="topbar">
+          <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false">☰</button>
+          <div class="topbar-title">☣ Sistema T20 — Apocalipse</div>
+          <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Pesquisar regras..." autocomplete="off" /></label>
+          <button class="theme-button" id="themeButton" aria-label="Alternar tema">◐</button>
+        </header>
 
-    <meta charset="UTF-8">
+        <main id="content" tabindex="-1">
+          <section id="top" class="hero" data-page="Início">
+            <p class="eyebrow">GUIA DE SOBREVIVÊNCIA</p>
+            <h1>O mundo acabou.<br /><em>Sua história começa agora.</em></h1>
+            <p class="lead">Um livro de regras digital para campanhas de T20 em um apocalipse zumbi — feito para encontrar regras depressa e manter a mesa em movimento.</p>
+            <div class="hero-actions"><a class="button primary" href="#introducao">Começar a jogar</a><a class="button secondary" href="#combate">Ver regras de combate</a></div>
+          </section>
 
-    <title>T20 Apocalipse</title>
+          <section class="quick-grid" aria-label="Acesso rápido">
+            <a href="#personagens"><span>👤</span><strong>Personagens</strong><small>Crie um sobrevivente</small></a>
+            <a href="#sobrevivencia"><span>🧟</span><strong>Sobrevivência</strong><small>Fome, sede e tensão</small></a>
+            <a href="#combate"><span>⚔</span><strong>Combate</strong><small>Armas e barulho</small></a>
+            <a href="#mestre"><span>🎲</span><strong>Mestre</strong><small>Eventos e saques</small></a>
+          </section>
 
-    <link rel="stylesheet" href="css/style.css">
+          <section id="introducao" data-page="Introdução">
+            <p class="eyebrow">INTRODUÇÃO</p><h2>Antes de entrar na zona morta</h2>
+            <p>Este sistema acrescenta pressão, escassez e escolhas difíceis às aventuras de T20. O objetivo não é apenas derrotar ameaças: é chegar vivo ao próximo amanhecer.</p>
+            <div class="callout info"><strong>Informação</strong><p>Use esta página como modelo para novos capítulos. Cada regra deve ter uma explicação curta, um exemplo e, quando necessário, uma nota para o mestre.</p></div>
+          </section>
 
-</head>
+          <section id="personagens" data-page="Personagens">
+            <p class="eyebrow">PERSONAGENS</p><h2>Sobreviventes têm cicatrizes</h2>
+            <p>Classes, origens, atributos, perícias e vantagens definem quem o personagem era — e o que ainda consegue ser.</p>
+            <div class="rule-box"><span class="rule-label">Regra em construção</span><p>Em breve: criação de personagens e vantagens próprias do apocalipse.</p></div>
+          </section>
 
-<body>
+          <section id="sobrevivencia" data-page="Sobrevivência">
+            <p class="eyebrow">SOBREVIVÊNCIA</p><h2>Todo recurso acaba</h2>
+            <p>Fome, sede, sono, infecção, moral e tensão tornam cada expedição uma decisão relevante.</p>
+            <div class="callout warning"><strong>Atenção</strong><p>Não trate a sobrevivência como punição. Ela deve criar escolhas e cenas memoráveis.</p></div>
+          </section>
 
-<div class="sidebar">
+          <section id="combate" data-page="Combate">
+            <p class="eyebrow">COMBATE</p><h2>Sobreviver é vencer</h2>
+            <p>Armas, munição, mira e cobertura importam. Porém, o barulho pode ser o inimigo mais perigoso.</p>
+            <div class="rule-box"><span class="rule-label">Regra</span><p>Todo disparo gera <strong>Barulho</strong>. Registre o nível de Barulho da cena e consulte a tabela apropriada quando ele aumentar.</p></div>
+            <h3>Exemplo</h3><p>Uma pistola resolve a ameaça imediata, mas pode atrair algo que o grupo não consegue enfrentar. Às vezes, fugir é a melhor tática.</p>
+          </section>
 
-    <h1>T20</h1>
-    <h2>Apocalipse</h2>
-
-    <button onclick="carregar('introducao')">
-        📖 Introdução
-    </button>
-
-    <button onclick="carregar('personagens')">
-        👤 Personagens
-    </button>
-
-    <button onclick="carregar('combate')">
-        ⚔ Combate
-    </button>
-
-    <button onclick="carregar('sobrevivencia')">
-        🧟 Sobrevivência
-    </button>
-
-    <button onclick="carregar('equipamentos')">
-        🎒 Equipamentos
-    </button>
-
-    <button onclick="carregar('zumbis')">
-        ☣ Zumbis
-    </button>
-
-    <button onclick="carregar('bases')">
-        🏠 Bases
-    </button>
-
-    <button onclick="carregar('mestre')">
-        🎲 Mestre
-    </button>
-
-</div>
-
-<div class="conteudo" id="conteudo">
-
-    <h1>Bem-vindo</h1>
-
-    <p>Selecione um capítulo.</p>
-
-</div>
-
-<script src="js/app.js"></script>
-
-</body>
+          <section id="zumbis" data-page="Zumbis"><p class="eyebrow">ZUMBIS</p><h2>A ameaça nunca dorme</h2><p>Do zumbi comum aos mutantes, cada ameaça pede uma resposta diferente do grupo.</p></section>
+          <section id="equipamentos" data-page="Equipamentos"><p class="eyebrow">EQUIPAMENTOS</p><h2>Carregue apenas o essencial</h2><p>Mochilas, ferramentas, medicina, comida, água e combustível podem valer mais que ouro.</p></section>
+          <section id="bases" data-page="Bases"><p class="eyebrow">BASES</p><h2>Um lugar para chamar de seguro</h2><p>Construa, melhore e defenda um abrigo antes que a noite chegue.</p></section>
+          <section id="veiculos" data-page="Veículos"><p class="eyebrow">VEÍCULOS</p><h2>A estrada pode salvar — ou matar</h2><p>Carros, motos, caminhões e helicópteros oferecem mobilidade, mas exigem combustível e manutenção.</p></section>
+          <section id="mestre" data-page="Mestre"><p class="eyebrow">MESTRE</p><h2>Conduza o fim do mundo</h2><p>Use eventos, tabelas de saque, missões e NPCs para transformar escassez em histórias.</p></section>
+        </main>
+        <footer>© 2026 Sistema T20 — Apocalipse · Projeto de fã, sem vínculo oficial.</footer>
+      </div>
+    </div>
+    <div class="search-results" id="searchResults" role="status" aria-live="polite"></div>
+  </body>
 </html>
