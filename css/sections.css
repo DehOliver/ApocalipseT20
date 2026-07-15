@@ -1,0 +1,60 @@
+/* Subcapítulos criados para os destinos individuais do menu lateral. */
+.subsection {
+  scroll-margin-top: 95px;
+  margin-top: 42px;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.subsection h3 {
+  margin: 0 0 12px;
+}
+
+.subsection p {
+  color: var(--muted);
+}
+
+.class-catalog {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.class-card {
+  scroll-margin-top: 95px;
+  margin-top: 16px;
+  padding: 17px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 3px;
+}
+
+.class-card h4 {
+  margin: 0;
+  font: 600 17px Arial, sans-serif;
+}
+
+.class-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.class-card--expanded { padding: 27px; }
+.class-card--expanded h4 { font-size: 28px; color: var(--ink); }
+.class-tagline { margin: 7px 0 24px !important; color: var(--accent) !important; font-style: italic; font-size: 19px; }
+.class-card h5 { margin: 30px 0 9px; font: 700 13px Arial, sans-serif; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+.class-stats,.choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+.class-stats div,.choice-grid div { background: var(--bg); border: 1px solid var(--line); padding: 13px; }
+.class-stats strong,.class-stats span,.choice-grid strong { display: block; }
+.class-stats strong,.choice-grid strong { font: 700 11px Arial, sans-serif; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
+.class-stats span { font-weight: bold; margin-top: 3px; }
+.choice-grid { grid-template-columns: repeat(2, 1fr); }
+.choice-grid p { margin: 6px 0 0; }
+.ability-list { margin: 0; }
+.ability-list div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.ability-list dt { font: 700 16px Arial, sans-serif; }
+.ability-list dd { margin: 5px 0 0; color: var(--muted); }
+.progression { margin: 0; padding-left: 20px; color: var(--muted); }
+.progression li { margin: 7px 0; }
+@media (max-width: 600px) { .class-stats,.choice-grid { grid-template-columns: 1fr; } .class-card--expanded { padding: 20px; } }

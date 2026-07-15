@@ -6,6 +6,9 @@
     <meta name="description" content="Livro digital do Sistema T20 — Apocalipse." />
     <title>Sistema T20 — Apocalipse</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/controls.css" />
     <script src="js/app.js" defer></script>
   </head>
   <body>
@@ -22,7 +25,7 @@
 
       <div class="main-area">
         <header class="topbar">
-          <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false">☰</button>
+          <button class="menu-button" id="menuButton" aria-label="Recolher navegação" aria-expanded="true">☰</button>
           <div class="topbar-title">☣ Sistema T20 — Apocalipse</div>
           <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Pesquisar regras..." autocomplete="off" /></label>
           <button class="theme-button" id="themeButton" aria-label="Alternar tema">◐</button>
@@ -44,7 +47,7 @@
           </section>
 
           <section id="introducao" data-page="Introdução">
-            <p class="eyebrow">INTRODUÇÃO · HISTÓRIA</p><h2>O mundo não terminou de uma vez</h2>
+            <p class="eyebrow">INTRODUÇÃO · HISTÓRIA</p><h2 id="historia" style="scroll-margin-top: 95px">O mundo não terminou de uma vez</h2>
             <p>Ninguém sabe onde a infecção começou. Há registros de hospitais fechados em cidades costeiras, boatos sobre laboratórios militares e relatos de vilarejos inteiros que pararam de responder ao rádio na mesma semana. Nenhuma versão foi comprovada. Quando os governos perceberam que havia uma epidemia, ela já estava em aeroportos, estradas, portos e abrigos — em todo lugar onde ainda existiam pessoas.</p>
             <p>As primeiras medidas foram previsíveis: quarentenas, toque de recolher, cercas, comunicados oficiais. Depois vieram as zonas de contenção, os bombardeios e as promessas de que a ordem seria restaurada. Não foi. Governos caíram; províncias se fragmentaram; ditaduras que pareciam eternas perderam o controle antes de conseguirem encontrar um inimigo que não negocia, não teme e não se rende.</p>
             <p>Hoje, fronteiras são apenas linhas em mapas velhos. A lei pertence a quem tem água, munição, uma rota de fuga ou gente suficiente para guardar uma porta durante a noite. Algumas comunidades tentam reconstruir algo parecido com civilização. Outras se transformaram em fortalezas, gangues ou histórias sussurradas ao redor de uma fogueira. Mas todas sabem a mesma verdade: sobreviver não é fácil — e está ficando mais difícil.</p>
@@ -59,6 +62,13 @@
             <p>Isso não significa que não exista esperança. Ela apenas não vem de exércitos salvadores nem de uma cura milagrosa. Ela vive em uma refeição dividida, em uma criança levada para um lugar seguro, numa transmissão de rádio respondida por alguém distante ou num grupo que escolhe não abandonar os seus.</p>
             <p>Os jogadores não são os heróis de um mundo que espera ser salvo. São sobreviventes em meio ao seu fim. Cada escolha tem peso porque cada dia vivo é uma vitória breve, frágil e profundamente humana.</p>
             <div class="callout info"><strong>Tom de jogo</strong><p>As aventuras devem priorizar tensão, escassez, vínculos e decisões difíceis. A pergunta principal não é “como vencemos?”, mas “o que estamos dispostos a perder para continuar vivos?”.</p></div>
+
+            <h3 id="como-jogar" style="scroll-margin-top: 95px">Como jogar</h3>
+            <p>Para jogar, são necessárias pelo menos duas pessoas: uma assume o papel de <strong>Mestre da Campanha</strong> e a outra interpreta um <strong>sobrevivente</strong>. Com mais jogadores, cada pessoa controla seu próprio personagem, formando um grupo que divide perigos, recursos e consequências.</p>
+            <p>Antes da primeira sessão, o mestre cria a premissa da campanha: uma situação inicial e o tipo de experiência que deseja oferecer ao grupo. Talvez os sobreviventes estejam com os últimos suprimentos de um abrigo e precisem se arriscar para reabastecê-lo. Talvez uma transmissão de rádio prometa ajuda em uma cidade distante. Ou talvez a campanha tenha como foco a adrenalina de explorar territórios desconhecidos, onde ninguém sabe qual será o inimigo de amanhã.</p>
+            <p>Em seguida, cada jogador cria seu personagem usando as regras deste livro. Esse personagem será sua presença no mundo: alguém com uma origem, capacidades, fraquezas e objetivos próprios. Ao longo da campanha, o jogador descreve suas interações, escolhas e ações; o mestre apresenta o mundo, interpreta suas ameaças e define as consequências de cada decisão.</p>
+            <p>Quando houver risco ou incerteza, as regras e os dados determinam se uma ação funciona — mas nunca decidem o que um personagem tenta fazer. Uma porta fechada pode separar o grupo de comida, abrigo ou uma saída. Uma conversa pode render um aliado ou iniciar uma guerra. Uma única escolha pode mudar o rumo entre a vida e a morte.</p>
+            <div class="callout info"><strong>Em resumo</strong><p>O mestre apresenta a situação. Os jogadores dizem o que seus sobreviventes fazem. Os dados entram em cena quando o resultado é incerto. Juntos, vocês constroem uma história sobre permanecer humano quando o mundo deixa de ser humano.</p></div>
           </section>
 
           <section id="personagens" data-page="Personagens">
