@@ -302,19 +302,13 @@ nav.innerHTML = groups.map(([icon, title, links], index) => `<details class="nav
 
 const classMenuLink = nav.querySelector('a[href="#classes"]');
 const archetypeNavLinks = [...nav.querySelectorAll('.nav-sub-link')];
+let archetypeNavToggle = null;
 if (classMenuLink && archetypeNavLinks.length) {
-  const toggle = document.createElement('button');
-  toggle.className = 'nav-archetype-toggle';
-  toggle.type = 'button';
-  classMenuLink.insertAdjacentElement('afterend', toggle);
-  const setArchetypeNavVisibility = collapsed => {
-    archetypeNavLinks.forEach(link => { link.hidden = collapsed; });
-    toggle.textContent = collapsed ? '▸ Mostrar arquétipos' : '⌄ Ocultar arquétipos';
-    toggle.setAttribute('aria-expanded', String(!collapsed));
-    localStorage.setItem('t20-nav-archetypes', collapsed ? 'collapsed' : 'expanded');
-  };
-  setArchetypeNavVisibility(localStorage.getItem('t20-nav-archetypes') === 'collapsed');
-  toggle.addEventListener('click', () => setArchetypeNavVisibility(!archetypeNavLinks[0].hidden));
+  archetypeNavToggle = document.createElement('button');
+  archetypeNavToggle.className = 'nav-archetype-toggle';
+  archetypeNavToggle.type = 'button';
+  archetypeNavToggle.setAttribute('aria-controls', 'classCards');
+  classMenuLink.insertAdjacentElement('afterend', archetypeNavToggle);
 }
 
 // Cada item de navegação tem uma âncora própria. Estes blocos são marcadores de conteúdo
@@ -339,18 +333,25 @@ if (classesSection) {
 
   const catalogToggle = document.querySelector('#catalogToggle');
   const classCards = document.querySelector('#classCards');
-  const setCatalogVisibility = collapsed => {
+
+  // Um único estado controla tanto a lista de arquétipos na barra lateral
+  // quanto o catálogo de classes exibido no conteúdo principal, evitando
+  // que os dois fiquem dessincronizados.
+  const setArchetypesVisibility = collapsed => {
     classCards.hidden = collapsed;
+    archetypeNavLinks.forEach(link => { link.hidden = collapsed; });
     catalogToggle.setAttribute('aria-expanded', String(!collapsed));
     catalogToggle.textContent = collapsed ? 'Mostrar arquétipos' : 'Ocultar arquétipos';
-    localStorage.setItem('t20-class-catalog', collapsed ? 'collapsed' : 'expanded');
+    if (archetypeNavToggle) {
+      archetypeNavToggle.setAttribute('aria-expanded', String(!collapsed));
+      archetypeNavToggle.textContent = collapsed ? '▸ Mostrar arquétipos' : '⌄ Ocultar arquétipos';
+    }
+    localStorage.setItem('t20-archetypes', collapsed ? 'collapsed' : 'expanded');
   };
-  setCatalogVisibility(localStorage.getItem('t20-class-catalog') === 'collapsed');
-  catalogToggle.addEventListener('click', () => setCatalogVisibility(!classCards.hidden));
-  nav.addEventListener('click', event => {
-    const anchor = event.target.closest('a')?.getAttribute('href');
-    if (anchor && classCards.hidden && classCards.querySelector(anchor)) setCatalogVisibility(false);
-  });
+
+  setArchetypesVisibility(localStorage.getItem('t20-archetypes') === 'collapsed');
+  catalogToggle.addEventListener('click', () => setArchetypesVisibility(!classCards.hidden));
+  if (archetypeNavToggle) archetypeNavToggle.addEventListener('click', () => setArchetypesVisibility(!classCards.hidden));
 }
 
 const body = document.body;
