@@ -668,3 +668,110 @@ setTimeout(() => {
     `;
   }
 }, 150);
+
+// ==========================================
+// SEÇÃO DE PERÍCIAS
+// ==========================================
+const skillsCatalog = [
+  { name: 'Acrobacia', attr: 'Destreza', desc: 'Representa sua capacidade de realizar movimentos ágeis, manter o equilíbrio e atravessar obstáculos com precisão. É utilizada para saltar entre telhados, escapar de agarrões, amortecer quedas e executar manobras arriscadas.' },
+  { name: 'Adestramento', attr: 'Carisma', desc: 'Mede sua habilidade de treinar, acalmar e comandar animais. Também pode ser utilizada para lidar com cães de guarda, animais domésticos ou qualquer criatura que possa responder ao comportamento humano.' },
+  { name: 'Atletismo', attr: 'Força', desc: 'Representa sua capacidade física para correr, escalar, nadar, saltar e realizar esforços intensos. É uma das principais perícias para superar obstáculos naturais e resistir às exigências físicas do apocalipse.' },
+  { name: 'Conhecimento', attr: 'Inteligência', desc: 'Reflete seus estudos, memória e cultura geral. Permite recordar informações sobre história, geografia, química, biologia, organizações, fenômenos naturais e outros assuntos relevantes.' },
+  { name: 'Diplomacia', attr: 'Carisma', desc: 'Representa sua capacidade de convencer pessoas através do diálogo, negociação e empatia. É utilizada para resolver conflitos, obter ajuda, negociar recursos e construir alianças.' },
+  { name: 'Enganação', attr: 'Carisma', desc: 'Mede sua habilidade de mentir, blefar, disfarçar intenções ou manipular outras pessoas. Também pode ser utilizada para criar distrações ou esconder informações importantes.' },
+  { name: 'Fortitude', attr: 'Constituição', desc: 'Representa sua resistência física diante de venenos, doenças, exaustão, fome, sede e outros efeitos que atacam o corpo. Personagens resistentes permanecem ativos mesmo nas condições mais extremas.' },
+  { name: 'Furtividade', attr: 'Destreza', desc: 'Permite mover-se silenciosamente, esconder-se e evitar ser percebido. É essencial para escapar de hordas de zumbis e infiltrar-se em locais perigosos sem chamar atenção.' },
+  { name: 'Iniciativa', attr: 'Destreza', desc: 'Determina a rapidez com que você reage diante de situações inesperadas. Quanto maior sua Iniciativa, maiores as chances de agir antes dos demais durante um combate ou evento crítico.' },
+  { name: 'Intimidação', attr: 'Carisma', desc: 'Representa sua capacidade de impor respeito ou medo através da presença, ameaças ou demonstrações de força. Pode ser utilizada para desmotivar inimigos ou forçar alguém a cooperar.' },
+  { name: 'Intuição', attr: 'Carisma', desc: 'Mede sua capacidade de compreender emoções, perceber intenções e identificar quando algo parece errado. É útil para detectar mentiras, avaliar pessoas e antecipar comportamentos.' },
+  { name: 'Investigação', attr: 'Inteligência', desc: 'Representa sua habilidade de procurar pistas, interpretar evidências e conectar informações. É utilizada durante buscas, análises de cenas e resolução de mistérios.' },
+  { name: 'Ladinagem', attr: 'Destreza', desc: 'Permite abrir fechaduras, desarmar armadilhas e manipular mecanismos delicados. Também é utilizada para arrombamentos discretos e outras ações que exigem precisão manual.' },
+  { name: 'Luta', attr: 'Força', desc: 'Representa seu treinamento em combate corpo a corpo utilizando socos, facas, bastões, machados e outras armas de curto alcance. Também cobre técnicas de agarrar, empurrar e imobilizar adversários.' },
+  { name: 'Medicina', attr: 'Inteligência', desc: 'Reflete seus conhecimentos sobre primeiros socorros, tratamento de ferimentos e cuidados com a saúde. É utilizada para estabilizar aliados, tratar doenças e reduzir os efeitos da infecção.' },
+  { name: 'Ofício', attr: 'Inteligência', desc: 'Representa sua habilidade em trabalhos manuais, fabricação e reparos. Pode ser utilizada para construir barricadas, fabricar ferramentas, reparar equipamentos e produzir itens úteis.' },
+  { name: 'Percepção', attr: 'Inteligência', desc: 'Mede sua atenção aos detalhes e capacidade de notar sons, movimentos ou objetos escondidos. É fundamental para evitar emboscadas e identificar perigos antes que seja tarde.' },
+  { name: 'Pilotagem', attr: 'Destreza', desc: 'Representa sua habilidade para conduzir veículos terrestres, aquáticos ou aéreos. Também cobre manobras difíceis, perseguições e direção em condições adversas.' },
+  { name: 'Pontaria', attr: 'Destreza', desc: 'Determina sua precisão ao utilizar armas de fogo, arcos, bestas e outras armas de ataque à distância. Também influencia disparos realizados sob pressão ou contra alvos em movimento.' },
+  { name: 'Reflexos', attr: 'Destreza', desc: 'Representa sua velocidade para reagir a ataques, explosões e outros perigos imediatos. É utilizada para esquivar-se, evitar armadilhas e reduzir os efeitos de ameaças repentinas.' },
+  { name: 'Sobrevivência', attr: 'Constituição', desc: 'Reflete seu conhecimento prático para viver em ambientes hostis. Permite encontrar alimento, água, abrigo, rastrear animais e enfrentar os desafios impostos pela natureza.' },
+  { name: 'Tática', attr: 'Inteligência', desc: 'Representa sua capacidade de analisar o campo de batalha, elaborar estratégias e coordenar ações em grupo. É utilizada para planejar emboscadas, organizar defesas e antecipar movimentos inimigos.' },
+  { name: 'Tecnologia', attr: 'Inteligência', desc: 'Mede seu conhecimento sobre equipamentos eletrônicos, computadores, sistemas digitais e dispositivos modernos. Também é utilizada para hackear sistemas simples, reparar aparelhos e operar tecnologias avançadas.' },
+  { name: 'Vontade', attr: 'Carisma', desc: 'Representa sua força mental, determinação e autocontrole diante do medo, da dor e do desespero. É utilizada para resistir a efeitos psicológicos, manter a calma sob pressão e continuar lutando quando tudo parece perdido.' }
+];
+
+setTimeout(() => {
+  const periciasSection = document.getElementById('pericias');
+  if (periciasSection) {
+    periciasSection.innerHTML = `
+      <h3>Perícias</h3>
+      <p>As perícias representam o treinamento, experiência e conhecimentos específicos de um personagem. Sempre que uma ação exigir mais do que uma capacidade natural, o Mestre poderá solicitar um teste de perícia.</p>
+      <p>Cada perícia está ligada a um atributo e permite que personagens especializados realizem tarefas com maior eficiência, tanto em combate quanto durante a sobrevivência.</p>
+
+      <h4>Atributos das Perícias</h4>
+      <p>Para uma consulta rápida, veja abaixo qual atributo governa cada perícia do jogo:</p>
+      <div class="skill-attr-grid">
+        ${skillsCatalog.map(s => `
+          <div class="sa-item">
+            <strong>${s.name}</strong>
+            <span>${s.attr}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <h4>Descrição das Perícias</h4>
+      <p>Abaixo estão detalhadas as utilidades e focos de cada uma das 24 perícias disponíveis para o seu sobrevivente:</p>
+      <div class="skill-desc-grid">
+        ${skillsCatalog.map(s => `
+          <div class="sd-card">
+            <h5>${s.name} <span>${s.attr}</span></h5>
+            <p>${s.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Treinamento em Perícias</h3>
+      <p>Nem todos os sobreviventes possuem o mesmo nível de experiência. Enquanto alguns apenas conhecem o básico sobre determinada área, outros passaram anos aperfeiçoando suas habilidades antes — ou mesmo depois — do colapso da sociedade.</p>
+      <p>Cada perícia possui um nível de treinamento, que representa o quanto seu personagem domina aquela área de conhecimento. Quanto maior o nível de treinamento, maior será o bônus recebido sempre que realizar um teste utilizando essa perícia.</p>
+      <p>Os níveis de treinamento são divididos em quatro categorias:</p>
+      
+      <div class="skills-table">
+        <div class="st-header">
+          <div class="st-level">Nível</div>
+          <div class="st-bonus">Bônus</div>
+          <div class="st-desc">Descrição</div>
+        </div>
+        <div class="st-row">
+          <div class="st-level"><strong>Destreinado</strong></div>
+          <div class="st-bonus">+0</div>
+          <div class="st-desc">Você possui apenas conhecimentos básicos ou age por instinto. Ainda pode tentar realizar a maioria das tarefas, mas depende principalmente de seu atributo e da sorte.</div>
+        </div>
+        <div class="st-row">
+          <div class="st-level"><strong>Treinado</strong></div>
+          <div class="st-bonus">+5</div>
+          <div class="st-desc">Você recebeu treinamento ou adquiriu experiência suficiente para executar tarefas com competência. Este é o nível da maioria dos profissionais e sobreviventes experientes.</div>
+        </div>
+        <div class="st-row">
+          <div class="st-level"><strong>Veterano</strong></div>
+          <div class="st-bonus">+10</div>
+          <div class="st-desc">Sua habilidade está muito acima da média. Você domina técnicas avançadas, age com confiança e raramente comete erros em situações comuns.</div>
+        </div>
+        <div class="st-row">
+          <div class="st-level"><strong>Experiente</strong></div>
+          <div class="st-bonus">+15</div>
+          <div class="st-desc">Você é uma referência naquela área. Sua experiência permite enfrentar desafios extremamente difíceis e realizar feitos que poucos conseguiriam repetir.</div>
+        </div>
+      </div>
+
+      <p>O bônus de treinamento é somado ao atributo correspondente sempre que um teste de perícia for realizado.</p>
+
+      <div class="callout info">
+        <strong>Exemplo de Teste</strong>
+        <p>Um personagem com Destreza +3 e Pontaria Veterano realiza seus ataques à distância com um bônus de +13 (+3 de Destreza e +10 pelo treinamento). Da mesma forma, um Médico com Inteligência +4 e Medicina Experiente fará testes de Medicina com +19.</p>
+      </div>
+
+      <p>Ao longo da campanha, o treinamento em perícias pode evoluir conforme o personagem ganha experiência, representando o aprendizado adquirido ao enfrentar os desafios do apocalipse. Escolher em quais perícias investir é uma decisão importante, pois elas definem aquilo em que seu sobrevivente realmente se destaca quando a situação fica crítica.</p>
+    `;
+  }
+}, 200);
