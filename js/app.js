@@ -586,3 +586,85 @@ setTimeout(() => {
     `;
   }
 }, 100);
+
+// ==========================================
+// SEÇÃO DE ATRIBUTOS
+// ==========================================
+const attributesCatalog = [
+  {
+    icon: '💪', name: 'Força',
+    quote: 'Quando não há outra opção, a força abre o caminho.',
+    desc: '<p>A Força representa o poder físico bruto do personagem. Ela determina sua capacidade de levantar peso, quebrar obstáculos, empurrar objetos pesados e lutar em combate corpo a corpo.</p><p>Personagens com alta Força conseguem utilizar armas pesadas com maior eficiência, carregar mais equipamentos e resistir melhor às exigências físicas do ambiente.</p>',
+    uses: ['Ataques corpo a corpo.', 'Arrombar portas.', 'Derrubar obstáculos.', 'Empurrar veículos.', 'Escalar utilizando força bruta.', 'Agarrar ou imobilizar inimigos.', 'Determinar a capacidade de carga do personagem.']
+  },
+  {
+    icon: '🏃', name: 'Destreza',
+    quote: 'Velocidade e precisão salvam mais vidas do que força descontrolada.',
+    desc: '<p>Destreza representa coordenação motora, agilidade, reflexos e precisão dos movimentos. Ela influencia a capacidade do personagem de mirar com armas de fogo, mover-se silenciosamente, escapar de perigos e executar ações delicadas.</p><p>Personagens com alta Destreza costumam agir antes dos demais, acertar disparos com maior facilidade e evitar ataques.</p>',
+    uses: ['Ataques à distância.', 'Esquiva.', 'Furtividade.', 'Reflexos.', 'Equilíbrio.', 'Arrombamentos delicados.', 'Escalada ágil.', 'Condução precisa de veículos.']
+  },
+  {
+    icon: '❤️', name: 'Constituição',
+    quote: 'Sobreviver é resistir quando todos os outros desistem.',
+    desc: '<p>Constituição representa a resistência física e mental do personagem diante das adversidades. Ela determina seus Pontos de Vida, resistência ao cansaço, doenças, fome, sede e infecções.</p><p>Em um cenário de apocalipse, onde recursos são escassos e o ambiente é tão perigoso quanto os inimigos, Constituição é um dos atributos mais importantes para garantir a sobrevivência a longo prazo.</p>',
+    uses: ['Resistir à fome.', 'Resistir à sede.', 'Suportar noites sem dormir.', 'Enfrentar doenças.', 'Resistir à infecção.', 'Resistir ao frio ou calor extremos.', 'Recuperação durante descansos.', 'Testes de resistência física.']
+  },
+  {
+    icon: '🧠', name: 'Inteligência',
+    quote: 'Conhecimento transforma problemas em soluções.',
+    desc: '<p>Inteligência representa raciocínio lógico, memória, capacidade de aprendizado e conhecimento técnico. Ela é utilizada para operar equipamentos, interpretar informações, fabricar objetos, reparar máquinas, realizar procedimentos médicos e compreender o funcionamento do mundo.</p><p>Além do conhecimento adquirido antes do apocalipse, Inteligência também representa a capacidade de improvisar soluções utilizando os recursos disponíveis.</p>',
+    uses: ['Medicina.', 'Tecnologia.', 'Investigação.', 'Ciências.', 'Fabricação.', 'Reparos.', 'Montagem de armadilhas.', 'Planejamento.', 'Decifrar documentos ou mapas.']
+  },
+  {
+    icon: '🗣', name: 'Carisma',
+    quote: 'No fim do mundo, convencer alguém pode valer mais do que uma arma carregada.',
+    desc: '<p>Carisma representa personalidade, confiança, liderança, determinação e influência sobre outras pessoas. Mais do que simplesmente falar bem, esse atributo mede a capacidade do personagem de inspirar aliados, negociar recursos, intimidar inimigos e manter a calma em situações críticas.</p><p>Em um mundo onde comunidades dependem da cooperação para sobreviver, o Carisma pode decidir o destino de um grupo inteiro.</p>',
+    uses: ['Diplomacia.', 'Enganação.', 'Intimidação.', 'Liderança.', 'Negociações.', 'Recrutamento de sobreviventes.', 'Discursos motivacionais.', 'Resistência ao desespero e à pressão social.']
+  }
+];
+
+setTimeout(() => {
+  const atributosSection = document.getElementById('atributos');
+  if (atributosSection) {
+    atributosSection.innerHTML = `
+      <h3>Determinando os Atributos</h3>
+      <p>Antes de iniciar a aventura, é hora de definir os atributos do seu personagem. Eles representam suas capacidades naturais e influenciam praticamente todas as ações realizadas durante a campanha, desde enfrentar um zumbi em combate até convencer outro sobrevivente a compartilhar seus recursos.</p>
+      
+      <p>Neste sistema, utilizamos o <strong>método Heroico</strong>, que cria personagens competentes e permite maior liberdade na construção de diferentes estilos de jogo.</p>
+
+      <h4>Método Heroico</h4>
+      <p>Para determinar seus atributos, siga os passos abaixo:</p>
+      <ol style="margin-bottom: 20px;">
+        <li>Role 4 dados de seis lados (4d6).</li>
+        <li>Desconsidere o menor resultado obtido.</li>
+        <li>Some os três dados restantes. Esse será o valor de um atributo.</li>
+        <li>Repita esse processo cinco vezes, obtendo cinco valores ao final.</li>
+      </ol>
+
+      <p>Após realizar todas as rolagens, distribua livremente cada valor entre os cinco atributos (<strong>clique nos cards para ver os detalhes</strong>):</p>
+      
+      <div class="attributes-grid">
+        ${attributesCatalog.map(attr => `
+          <details class="attr-card" name="atributos-acordeon">
+            <summary><strong>${attr.icon} ${attr.name}</strong></summary>
+            <div class="attr-content">
+              <p class="attr-quote">"${attr.quote}"</p>
+              ${attr.desc}
+              <strong>A ${attr.name} é utilizada em situações como:</strong>
+              <ul>
+                ${attr.uses.map(use => `<li>${use}</li>`).join('')}
+              </ul>
+            </div>
+          </details>
+        `).join('')}
+      </div>
+
+      <p>A distribuição é feita somente depois que todos os valores forem conhecidos, permitindo que cada jogador monte o personagem da maneira que desejar.</p>
+
+      <div class="callout info">
+        <strong>Exemplo de Distribuição</strong>
+        <p>Um jogador que queira interpretar um Militar pode optar por colocar seus maiores valores em Força e Destreza, enquanto alguém que deseje criar um Médico provavelmente dará prioridade à Inteligência e à Constituição. Já um Negociador pode concentrar seus melhores resultados em Carisma, sem que isso seja definido pela sorte antes das escolhas.</p>
+      </div>
+    `;
+  }
+}, 150);
