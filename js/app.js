@@ -317,8 +317,6 @@ if (classMenuLink && archetypeNavLinks.length) {
   toggle.addEventListener('click', () => setArchetypeNavVisibility(!archetypeNavLinks[0].hidden));
 }
 
-// Cada item de navegação tem uma âncora própria. Estes blocos são marcadores de conteúdo
-// até que as regras definitivas de cada tópico sejam escritas.
 groups.flatMap(([, , links]) => links).forEach(([title, anchor, parent]) => {
   if (!parent || document.getElementById(anchor)) return;
   const target = document.getElementById(parent);
@@ -385,17 +383,208 @@ search.addEventListener('input', () => { const query = search.value.trim().toLoc
 results.addEventListener('click', () => { results.classList.remove('visible'); search.value = ''; });
 
 // ==========================================
-// SEÇÃO DE ORIGENS (Em construção)
+// CATÁLOGO DE ORIGENS
 // ==========================================
+const originDetails = [
+  {
+    icon: '🏠', name: 'Civil Comum',
+    quote: '"Você era apenas mais uma pessoa tentando viver sua vida quando tudo acabou."',
+    desc: 'Você não possuía treinamento especializado, mas aprendeu a sobreviver enfrentando desafios como qualquer outra pessoa.',
+    skills: ['Vontade', 'Intuição'],
+    power: { name: 'Adaptável', desc: 'Uma vez por cena, pode repetir um teste de perícia que tenha falhado. Deve aceitar o novo resultado.' },
+    equip: ['Mochila', 'Lanterna', 'Cantil', 'Canivete', 'Cobertor']
+  },
+  {
+    icon: '🎖️', name: 'Veterano',
+    quote: '"Você já conhecia a violência muito antes do fim do mundo."',
+    desc: 'Experiências anteriores em conflitos o prepararam para manter a calma sob pressão.',
+    skills: ['Pontaria', 'Guerra'],
+    power: { name: 'Sangue Frio', desc: 'Recebe +2 em testes contra medo, pânico e intimidação.' },
+    equip: ['Faca de combate', 'Colete leve', 'Lanterna tática', 'Binóculo', 'Kit de limpeza de armas']
+  },
+  {
+    icon: '🔥', name: 'Sobrevivente Nato',
+    quote: '"Você aprendeu cedo que ninguém sobreviveria por você."',
+    desc: 'Você desenvolveu instintos apurados para enfrentar situações extremas.',
+    skills: ['Sobrevivência', 'Percepção'],
+    power: { name: 'Instinto de Sobrevivência', desc: 'Recebe +2 em testes para evitar emboscadas, armadilhas e perigos naturais.' },
+    equip: ['Cantil', 'Faca', 'Mochila', 'Corda', 'Isqueiro']
+  },
+  {
+    icon: '🎒', name: 'Saqueador',
+    quote: '"Os recursos estão escondidos. Você sabe onde procurar."',
+    desc: 'Você desenvolveu técnicas para entrar, vasculhar e sair de locais perigosos rapidamente.',
+    skills: ['Investigação', 'Furtividade'],
+    power: { name: 'Olhos Afiados', desc: 'Recebe +2 em testes para encontrar suprimentos durante saques.' },
+    equip: ['Pé de cabra', 'Mochila', 'Lanterna', 'Canivete', 'Luvas']
+  },
+  {
+    icon: '🗺️', name: 'Explorador',
+    quote: '"Cada rua pode esconder uma ameaça... ou uma oportunidade."',
+    desc: 'Você está acostumado a descobrir caminhos, mapear áreas e reconhecer terrenos.',
+    skills: ['Sobrevivência', 'Atletismo'],
+    power: { name: 'Reconhecimento', desc: 'Recebe +2 em testes para navegar e evitar se perder.' },
+    equip: ['Bússola', 'Binóculo', 'Corda', 'Mapa', 'Cantil']
+  },
+  {
+    icon: '🏕️', name: 'Campista',
+    quote: '"Você se sente mais confortável dormindo sob as estrelas do que entre quatro paredes."',
+    desc: 'Anos de acampamentos ensinaram como viver com poucos recursos.',
+    skills: ['Sobrevivência', 'Ofício'],
+    power: { name: 'Vida ao Ar Livre', desc: 'Recebe +2 em testes para montar acampamentos e reduzir os efeitos do clima.' },
+    equip: ['Barraca', 'Saco de dormir', 'Cantil', 'Isqueiro', 'Machado']
+  },
+  {
+    icon: '🚗', name: 'Estradeiro',
+    quote: '"Nenhuma estrada é longa demais quando você sabe para onde está indo."',
+    desc: 'Você passou boa parte da vida viajando.',
+    skills: ['Pilotagem', 'Sobrevivência'],
+    power: { name: 'Direção Econômica', desc: 'Veículos conduzidos por você consomem menos combustível em viagens longas.' },
+    equip: ['Rádio', 'Mapa rodoviário', 'Caixa de ferramentas', 'Lanterna', 'Mochila']
+  },
+  {
+    icon: '🔧', name: 'Faz-Tudo',
+    quote: '"Sempre existe uma maneira de fazer funcionar."',
+    desc: 'Você aprendeu um pouco de tudo.',
+    skills: ['Ofício', 'Tecnologia'],
+    power: { name: 'Improvisador', desc: 'Recebe +2 para fabricar ou reparar objetos improvisados.' },
+    equip: ['Caixa de ferramentas', 'Alicate', 'Fita isolante', 'Martelo', 'Chave inglesa']
+  },
+  {
+    icon: '🩹', name: 'Cuidador',
+    quote: '"Nem sempre é preciso ser médico para salvar uma vida."',
+    desc: 'Você sempre cuidou das pessoas ao seu redor.',
+    skills: ['Medicina', 'Intuição'],
+    power: { name: 'Primeiros Socorros', desc: 'Recebe +2 em testes de Medicina para estabilizar aliados.' },
+    equip: ['Bandagens', 'Kit de primeiros socorros', 'Antisséptico', 'Analgésicos', 'Luvas']
+  },
+  {
+    icon: '🛡️', name: 'Protetor',
+    quote: '"Enquanto eu estiver de pé, ninguém passa."',
+    desc: 'Você sempre colocou a segurança dos outros acima da sua.',
+    skills: ['Luta', 'Atletismo'],
+    power: { name: 'Escudo Humano', desc: 'Uma vez por cena, pode sofrer um ataque destinado a um aliado adjacente.' },
+    equip: ['Escudo improvisado', 'Bastão', 'Capacete', 'Colete leve', 'Lanterna']
+  },
+  {
+    icon: '🚨', name: 'Resgatista',
+    quote: '"Desistir de alguém nunca foi uma opção."',
+    desc: 'Você está acostumado a salvar pessoas em situações críticas.',
+    skills: ['Atletismo', 'Medicina'],
+    power: { name: 'Resgate', desc: 'Pode carregar um aliado inconsciente sem reduzir seu deslocamento e recebe +2 em testes para retirar pessoas de escombros, incêndios ou veículos.' },
+    equip: ['Machado', 'Pé de cabra', 'Corda', 'Kit de primeiros socorros', 'Lanterna']
+  },
+  {
+    icon: '🤝', name: 'Comunitário',
+    quote: '"Ninguém sobrevive sozinho."',
+    desc: 'Você sempre viveu cercado por pessoas e sabe trabalhar em equipe.',
+    skills: ['Diplomacia', 'Intuição'],
+    power: { name: 'Espírito de Equipe', desc: 'Sempre que ajudar um aliado, ele recebe +1 adicional no teste.' },
+    equip: ['Rádio', 'Mochila', 'Cantil', 'Cobertor', 'Bloco de notas']
+  },
+  {
+    icon: '🎭', name: 'Manipulador',
+    quote: '"As pessoas acreditam no que querem ouvir."',
+    desc: 'Você domina a arte da persuasão.',
+    skills: ['Enganação', 'Diplomacia'],
+    power: { name: 'Boa Conversa', desc: 'Recebe +2 em testes de Enganação e Diplomacia durante negociações.' },
+    equip: ['Gravador', 'Celular descarregado', 'Bloco de notas', 'Canivete', 'Rádio']
+  },
+  {
+    icon: '🎯', name: 'Atirador Esportivo',
+    quote: '"Precisão sempre foi um esporte. Agora é sobrevivência."',
+    desc: 'Você treinava tiro por hobby antes do colapso.',
+    skills: ['Pontaria', 'Percepção'],
+    power: { name: 'Mira Treinada', desc: 'Recebe +1 nas jogadas de ataque com armas de fogo de disparo único.' },
+    equip: ['Pistola', 'Kit de limpeza', 'Binóculo', 'Protetor auricular', 'Lanterna']
+  },
+  {
+    icon: '🦌', name: 'Caçador',
+    quote: '"A natureza sempre oferece alimento para quem sabe procurar."',
+    desc: 'Você sabe rastrear, caçar e sobreviver longe das cidades.',
+    skills: ['Sobrevivência', 'Percepção'],
+    power: { name: 'Rastreador', desc: 'Recebe +2 em testes para seguir rastros e encontrar alimento natural.' },
+    equip: ['Rifle de caça', 'Facão', 'Binóculo', 'Cantil', 'Corda']
+  },
+  {
+    icon: '📦', name: 'Colecionador',
+    quote: '"Nada deve ser desperdiçado."',
+    desc: 'Você sempre guardou objetos que poderiam ser úteis.',
+    skills: ['Investigação', 'Ofício'],
+    power: { name: 'Aproveitamento Máximo', desc: 'Sempre que desmontar um item, recupera mais materiais que o normal.' },
+    equip: ['Mochila grande', 'Caixa organizadora', 'Alicate', 'Lanterna', 'Canivete']
+  },
+  {
+    icon: '📚', name: 'Estudioso',
+    quote: '"Conhecimento continua sendo a ferramenta mais poderosa."',
+    desc: 'Você dedicou sua vida aos estudos e à pesquisa.',
+    skills: ['Ciências', 'Investigação'],
+    power: { name: 'Mente Analítica', desc: 'Recebe +2 em testes para identificar substâncias, doenças e equipamentos.' },
+    equip: ['Livros', 'Bloco de anotações', 'Lanterna', 'Mochila', 'Lupa']
+  },
+  {
+    icon: '🏚️', name: 'Isolado',
+    quote: '"Você aprendeu a depender apenas de si mesmo."',
+    desc: 'Você viveu longe da sociedade ou escolheu esse caminho.',
+    skills: ['Sobrevivência', 'Vontade'],
+    power: { name: 'Autossuficiente', desc: 'Recebe +2 em testes para resistir à fome, sede e fadiga.' },
+    equip: ['Machado', 'Cantil', 'Corda', 'Isqueiro', 'Mochila']
+  },
+  {
+    icon: '🌆', name: 'Sobrevivente de Rua',
+    quote: '"Você conhecia a luta pela sobrevivência antes de ela virar a realidade de todos."',
+    desc: 'Anos vivendo nas ruas ensinaram você a improvisar, encontrar abrigo e aproveitar qualquer recurso disponível.',
+    skills: ['Furtividade', 'Sobrevivência'],
+    power: { name: 'Vira-Lata', desc: 'Recebe +2 em testes para encontrar abrigo improvisado, comida descartada e objetos úteis em ambientes urbanos.' },
+    equip: ['Cobertor', 'Canivete', 'Mochila', 'Luvas', 'Pé de cabra']
+  },
+  {
+    icon: '🥫', name: 'Preparador (Prepper)',
+    quote: '"Enquanto todos riam de você, você já estava se preparando para o pior."',
+    desc: 'Você sempre acreditou que um grande desastre aconteceria e passou anos acumulando suprimentos, aprendendo técnicas de sobrevivência e planejando contingências.',
+    skills: ['Sobrevivência', 'Investigação'],
+    power: { name: 'Plano B', desc: 'Uma vez por sessão, quando o grupo precisar de um item comum (corda, pilhas, isqueiro, fita adesiva, etc.), você pode declarar que havia guardado, desde que seja plausível.' },
+    equip: ['Mochila grande', 'Cantil', 'Kit de primeiros socorros', 'Corda', 'Filtro de água']
+  }
+];
 
+// Injetar o HTML na seção "origens" (ancorado dinamicamente)
 setTimeout(() => {
   const origensSection = document.getElementById('origens');
   if (origensSection) {
-    origensSection.innerHTML = `
-      <div class="em-construcao-section">
-        <h3>Origens (Em Breve)</h3>
-        <p>Neste mundo devastado, quem você era antes do apocalipse dita as ferramentas que você tem para sobreviver hoje. As regras, vantagens e categorias completas de Origens estão em fase de testes e balanceamento, e serão adicionadas em futuras atualizações do sistema ApocalipseT20.</p>
+    origensSection.innerHTML = \`
+      <h3>O que você fazia antes do fim?</h3>
+      <p>Sua origem define o que você sabia fazer antes do mundo acabar. No ApocalipseT20, ela rende perícias bônus, equipamentos iniciais essenciais e um poder exclusivo na sua jornada de sobrevivência.</p>
+      
+      <div class="origins-grid">
+        \${originDetails.map(orig => \`
+          <article class="origin-card">
+            <header class="origin-header">
+              <span class="origin-icon">\${orig.icon}</span>
+              <h4>\${orig.name}</h4>
+            </header>
+            <p class="origin-quote"><em>\${orig.quote}</em></p>
+            <p class="origin-desc">\${orig.desc}</p>
+            
+            <div class="origin-stats">
+              <div class="stat-block">
+                <strong>Perícias Adicionais</strong>
+                <span>\${orig.skills.join(' e ')}</span>
+              </div>
+              <div class="stat-block">
+                <strong>Poder: \${orig.power.name}</strong>
+                <span>\${orig.power.desc}</span>
+              </div>
+              <div class="stat-block equip-block">
+                <strong>Equipamento Inicial (Escolha dois)</strong>
+                <ul>
+                  \${orig.equip.map(item => \`<li>\${item}</li>\`).join('')}
+                </ul>
+              </div>
+            </div>
+          </article>
+        \`).join('')}
       </div>
-    `;
+    \`;
   }
 }, 100);
