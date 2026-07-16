@@ -146,3 +146,105 @@
   color: var(--muted);
   font-size: 13px;
 }
+
+/* ==========================================
+   ATRIBUTOS (CARDS EXPANSÍVEIS)
+   ========================================== */
+.attributes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.attr-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px;
+  flex: 1 1 calc(20% - 12px);
+  min-width: 130px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.attr-card summary {
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+  text-align: center;
+  margin: 0;
+  user-select: none;
+}
+
+/* Remove a setinha nativa do details */
+.attr-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.attr-card:hover {
+  border-color: var(--accent);
+}
+
+.attr-card:not([open]):hover {
+  transform: translateY(-2px);
+}
+
+.attr-card strong {
+  font: 700 15px Arial, sans-serif;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Comportamento do card quando está aberto */
+.attr-card[open] {
+  flex: 1 1 100%; /* Força o card a ocupar a linha toda */
+  cursor: default;
+}
+
+.attr-card[open] summary {
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.attr-content {
+  text-align: left;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.attr-quote {
+  font: italic 15px Georgia, serif;
+  color: var(--accent) !important;
+  margin-bottom: 12px !important;
+}
+
+.attr-content p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 10px;
+}
+
+.attr-content strong {
+  display: block;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.attr-content ul {
+  margin-top: 8px;
+  padding-left: 24px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.attr-content li {
+  margin-bottom: 6px;
+}
+
+/* Animação suave para o texto aparecendo */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
