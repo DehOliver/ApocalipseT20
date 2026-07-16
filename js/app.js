@@ -2,65 +2,216 @@ const militaryDetails = `
   <p class="class-tagline">"A disciplina salva vidas quando o mundo entra em colapso."</p>
   <p>O Militar representa soldados das forças armadas, policiais, agentes de segurança, guardas patrimoniais e qualquer pessoa que tenha recebido treinamento formal de combate antes do colapso.</p>
   <p>É a classe indicada para a linha de frente, para a proteção do grupo e para o uso eficiente de armas de fogo.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>24 + Constituição</span></div><div><strong>Por nível</strong><span>6 + Constituição</span></div></div>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Treinamento formal em combate</li>
+    <li>Disciplina e resistência psicológica</li>
+    <li>Expertise com armas de fogo</li>
+    <li>Liderança em situações críticas</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>24 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>6 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Armas de Fogo, Guerra, Percepção</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Os PA substituem Pontos de Mana para esta classe. Eles representam foco, treinamento, resistência física e controle emocional sob pressão.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA por turno de descanso ou ao meditar sobre conquistas.</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Ordem Tática:</strong> Pode guiar aliados em combate, conferindo +1 em suas ações de defesa</li>
+    <li><strong>Retaguarda Segura:</strong> Uma vez por cena, pode estabelecer uma posição defensiva que protege aliados próximos</li>
+    <li><strong>Coragem Sob Fogo:</strong> Resiste a testes de medo quando em combate direto</li>
+  </ul>
 `;
 
 const survivorDetails = `
   <p class="class-tagline">"Você não vence porque é mais forte. Vence porque ainda está vivo."</p>
   <p>O Sobrevivente é o explorador que retorna carregando recursos. Seu maior talento não é lutar. É voltar vivo.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>16 + Constituição</span></div><div><strong>Por nível</strong><span>4 + Constituição</span></div></div>
+  <p>Estes são os buscadores, coletores e exploradores que conhecem cada rota de fuga, cada esconderijo seguro e cada atalho perigoso.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Exploração e reconhecimento</li>
+    <li>Reflexos aguçados</li>
+    <li>Improviso e adaptação</li>
+    <li>Conhecimento de rotas de fuga</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>16 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>4 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Furtividade, Sobrevivência, Investigação</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam reflexos, concentração e improvisação: a capacidade de reagir ao perigo antes que ele o alcance.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA ao descobrir algo novo ou superar um obstáculo</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Rotas Seguras:</strong> Conhece sempre uma via de fuga em locais já explorados</li>
+    <li><strong>Senso de Perigo:</strong> Percebe emboscadas e armadilhas antes de pisar nelas</li>
+    <li><strong>Saque Rápido:</strong> Coleta recursos 50% mais rápido que outros</li>
+  </ul>
 `;
 
 const mechanicDetails = `
   <p class="class-tagline">"Se ainda funciona, eu consigo melhorar."</p>
   <p>O Mecânico representa engenheiros, mecânicos automotivos, eletricistas e técnicos de manutenção. Esta é a classe que transforma sucata em recursos úteis.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>18 + Constituição</span></div><div><strong>Por nível</strong><span>5 + Constituição</span></div></div>
+  <p>Quando todos os outros veem só lixo, o Mecânico vê possibilidades infinitas de melhoria e adaptação.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Expertise técnica</li>
+    <li>Reparo e manutenção</li>
+    <li>Criação de armadilhas e dispositivos</li>
+    <li>Improviso criativo</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>18 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>5 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Artesanato, Mecânica, Elétrica</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam concentração, conhecimento técnico e improvisação sob pressão.</p>
+  <p><strong>Regeneração:</strong> Recupera 3 PA ao reparar algo ou criar um dispositivo útil</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Análise de Estrutura:</strong> Identifica pontos fracos em construções e máquinas</li>
+    <li><strong>Jury Rig:</strong> Pode criar dispositivos funcionais com sucata em 10 minutos</li>
+    <li><strong>Sabotagem Inteligente:</strong> Sabe desativar sistemas sem destruí-los</li>
+  </ul>
 `;
 
 const trackerDetails = `
   <p class="class-tagline">"Toda pegada conta uma história."</p>
   <p>O Rastreador representa caçadores, guias de trilha, guardas florestais, exploradores e especialistas em reconhecimento.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>20 + Constituição</span></div><div><strong>Por nível</strong><span>5 + Constituição</span></div></div>
+  <p>Seus olhos conseguem ler sinais que outros ignoram: trilhas antigas, marcas de garras, direção do vento, comportamento animal.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Rastreamento e reconhecimento</li>
+    <li>Conhecimento de natureza</li>
+    <li>Caça e captura</li>
+    <li>Orientação</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>20 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>5 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Rastreamento, Natureza, Percepção</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam percepção aguçada, experiência em campo e resistência mental.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA ao rastrear com sucesso ou descobrir informações valiosas</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Lê os Sinais:</strong> Interpreta pegadas, marcas e comportamentos</li>
+    <li><strong>Orientação Inata:</strong> Nunca se perde e sempre conhece a direção do caminho</li>
+    <li><strong>Caçador Preparado:</strong> Recebe +3 em emboscadas planejadas</li>
+  </ul>
 `;
 
 const mercenaryDetails = `
   <p class="class-tagline">"Sem a disciplina militar, o Mercenário é pura agressão."</p>
   <p>O Mercenário representa ex-soldados particulares, seguranças privados, lutadores e caçadores de recompensas acostumados a resolver problemas pela força.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>26 + Constituição</span></div><div><strong>Por nível</strong><span>6 + Constituição</span></div></div>
+  <p>Eles são guerreiros profissionais que não têm lealdade à pátria, apenas ao resultado final.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Combate brutalmente eficiente</li>
+    <li>Agressão controlada</li>
+    <li>Resistência extrema</li>
+    <li>Destemor em confrontos</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>26 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>6 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Combate Corpo a Corpo, Intimidação, Guerra</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam agressividade, resistência física e instinto de combate.</p>
+  <p><strong>Regeneração:</strong> Recupera 3 PA a cada inimigo derrotado em combate</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Golpe Devastador:</strong> Uma vez por turno, multiplica dano por 1.5</li>
+    <li><strong>Resistência de Ferro:</strong> Reduz dano recebido em 2 pontos</li>
+    <li><strong>Execução:</strong> Pode finalizar inimigos incapacitados de forma rápida</li>
+  </ul>
 `;
 
 const leaderDetails = `
   <p class="class-tagline">"As pessoas não seguem quem grita mais alto."</p>
   <p>O Líder representa chefes de equipe, oficiais, professores, empresários e líderes comunitários.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>18 + Constituição</span></div><div><strong>Por nível</strong><span>5 + Constituição</span></div></div>
+  <p>Sua verdadeira arma é a inspiração: ela mantém grupos unidos quando tudo parece perdido e multiplica a força de todos ao redor.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Inspiração e motivação</li>
+    <li>Liderança estratégica</li>
+    <li>Negociação</li>
+    <li>Autoridade natural</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>18 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>5 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Liderança, Persuasão, Conhecimento</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam presença de espírito, autoridade e capacidade de motivar pessoas.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA ao inspirar aliados ou resolver conflito sem violência</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Inspiração Tática:</strong> Todos os aliados ganham +2 em um teste ao ser motivado</li>
+    <li><strong>Voz de Comando:</strong> Pode ordenar ações coordenadas de múltiplos aliados</li>
+    <li><strong>Diplomacia Eficiente:</strong> Consegue negociar onde outros fracassariam</li>
+  </ul>
 `;
 
 const medicDetails = `
   <p class="class-tagline">"Nem toda batalha é vencida com balas."</p>
   <p>O Médico representa médicos, enfermeiros, socorristas e paramédicos. Seu conhecimento estabiliza ferimentos.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>16 + Constituição</span></div><div><strong>Por nível</strong><span>4 + Constituição</span></div></div>
+  <p>Em um mundo onde a infecção mata mais que as balas, o Médico é tão essencial quanto o melhor guerreiro.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Conhecimento médico avançado</li>
+    <li>Manipulação de medicamentos</li>
+    <li>Diagnóstico rápido</li>
+    <li>Cirurgia de campo</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>16 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>4 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Medicina, Alquimia, Conhecimento</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam concentração, conhecimento técnico e a capacidade de agir sob pressão.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA ao curar ferimentos graves ou salvar vidas</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Cirurgia de Emergência:</strong> Pode salvar aliados à beira da morte</li>
+    <li><strong>Antídoto Rápido:</strong> Resiste e neutraliza envenenamentos</li>
+    <li><strong>Diagnóstico Preciso:</strong> Identifica doenças e infecções instantaneamente</li>
+  </ul>
 `;
 
 const influencerDetails = `
   <p class="class-tagline">"Palavras não matam zumbis."</p>
   <p>O Influenciador tem a comunicação como maior arma. Convencer alguém pode valer mais que vencer um combate.</p>
-  <div class="class-stats"><div><strong>Vida inicial</strong><span>16 + Constituição</span></div><div><strong>Por nível</strong><span>4 + Constituição</span></div></div>
+  <p>Artistas, celebridades, políticos e comunicadores: aqueles cujas palavras moldam realidades e mexem com emoções.</p>
+  <h5>Características Principais</h5>
+  <ul>
+    <li>Persuasão extrema</li>
+    <li>Carisma natural</li>
+    <li>Manipulação social</li>
+    <li>Criatividade e improviso verbais</li>
+  </ul>
+  <div class="class-stats">
+    <div><strong>Vida inicial</strong><span>16 + Constituição</span></div>
+    <div><strong>Por nível</strong><span>4 + Constituição</span></div>
+    <div><strong>Perícias de Classe</strong><span>Persuasão, Intuição, Performance</span></div>
+  </div>
   <h5>Pontos de Adrenalina (PA)</h5>
   <p>Seus PA representam presença de espírito, eloquência, criatividade e autocontrole.</p>
+  <p><strong>Regeneração:</strong> Recupera 2 PA ao convencer alguém ou evitar conflito via comunicação</p>
+  <h5>Habilidades Especiais</h5>
+  <ul>
+    <li><strong>Discurso Inspirador:</strong> Pode motivar qualquer grupo para ação</li>
+    <li><strong>Mentira Convincente:</strong> Passa em testes de enganação mesmo em situações improváveis</li>
+    <li><strong>Manipulação Emocional:</strong> Compreende e explora motivações alheias</li>
+  </ul>
 `;
 
 const classCatalog = [
@@ -217,7 +368,7 @@ results.addEventListener('click', () => {
   search.value = ''; 
 });
 
-// Origins catalog
+// Origins catalog - TODAS AS 20 ORIGENS
 const originDetails = [
   {
     icon: '🏠', name: 'Civil Comum',
@@ -251,6 +402,134 @@ const originDetails = [
     power: { name: 'Olhos Afiados', desc: 'Recebe +2 em testes para encontrar suprimentos durante saques.' },
     equip: ['Pé de cabra', 'Mochila', 'Lanterna', 'Canivete', 'Luvas']
   },
+  {
+    icon: '🏭', name: 'Operário',
+    quote: '"Trabalho duro sempre foi a solução."',
+    desc: 'Você viveu de trabalho manual, construindo e conertando coisas. Seus músculos e conhecimento prático são suas maiores forças.',
+    skills: ['Artesanato', 'Força'],
+    power: { name: 'Mãos Firmes', desc: 'Consegue reparar qualquer coisa com materiais improvisados. +2 em testes de conserto.' },
+    equip: ['Chave inglesa', 'Martelo', 'Alicate', 'Mochila pesada', 'Luvas de trabalho']
+  },
+  {
+    icon: '🚜', name: 'Fazendeiro',
+    quote: '"A terra me ensinou a paciência e quando reconhecer os sinais de mudança."',
+    desc: 'Cresceu em contato direto com a natureza, entendendo ciclos, plantações e animais.',
+    skills: ['Natureza', 'Sobrevivência'],
+    power: { name: 'Conhecimento da Terra', desc: 'Sabe encontrar água e comida em qualquer ambiente natural. +3 em testes de foragir.' },
+    equip: ['Enxada', 'Corda grossa', 'Lanterna óleo', 'Sementes', 'Mochila']
+  },
+  {
+    icon: '🎓', name: 'Acadêmico',
+    quote: '"Nem todo conhecimento salva vidas, mas alguns conhecimentos certamente o fazem."',
+    desc: 'Estudou sistemas, história e ciência. Sua mente é sua ferramenta mais afiada.',
+    skills: ['Conhecimento', 'Análise'],
+    power: { name: 'Pesquisa Rápida', desc: 'Pode tentar lembrar ou deduzir informações sobre qualquer assunto uma vez por cena.' },
+    equip: ['Livro de referência', 'Óculos extra', 'Caderno e caneta', 'Lanterna', 'Mochila']
+  },
+  {
+    icon: '👮', name: 'Policial',
+    quote: '"Lei e ordem ainda importam, mesmo que o mundo tenha acabado."',
+    desc: 'Você cumpriu a lei antes. Agora você define o que é justo.',
+    skills: ['Investigação', 'Liderança'],
+    power: { name: 'Autoridade', desc: 'NPCs levarão suas ordens mais a sério. +2 em testes de persuasão com autoridades.' },
+    equip: ['Distintivo', 'Algemas', 'Lanterna policial', 'Gás pimenta', 'Cassetete']
+  },
+  {
+    icon: '🏥', name: 'Enfermeiro',
+    quote: '"Curar é mais difícil que machucar, mas muito mais importante."',
+    desc: 'Você passou seus dias cuidando de pessoas doentes. A pressão e o caos não são novidade.',
+    skills: ['Medicina', 'Empatia'],
+    power: { name: 'Cuidados de Emergência', desc: 'Pode estabilizar qualquer pessoa à beira da morte uma vez por dia.' },
+    equip: ['Kit médico', 'Luvas estéreis', 'Mascara', 'Ataduras', 'Mochila médica']
+  },
+  {
+    icon: '🍳', name: 'Chef',
+    quote: '"Comida não é luxo. É sobrevivência com dignidade."',
+    desc: 'Você sabe transformar qualquer ingrediente em algo comestível, seguro e até saboroso.',
+    skills: ['Culinária', 'Química'],
+    power: { name: 'Mestre Culinário', desc: 'Comida preparada por você é 30% mais nutritiva. Pode detectar veneno por gosto.' },
+    equip: ['Faca de chef', 'Panela portátil', 'Temperos', 'Óleo de cozinha', 'Mochila reforçada']
+  },
+  {
+    icon: '⚙️', name: 'Engenheiro',
+    quote: '"Sistemas complexos são apenas puzzles esperando serem resolvidos."',
+    desc: 'Você projetava, construía e otimizava máquinas. Seu conhecimento de engenharia é profundo.',
+    skills: ['Engenharia', 'Mecânica'],
+    power: { name: 'Design Avançado', desc: 'Pode criar armadilhas e dispositivos complexos em 1 hora. +2 em testes de sabotagem.' },
+    equip: ['Ferramentas precisas', 'Projeto técnico', 'Fio elétrico', 'Lanterna LED', 'Mochila técnica']
+  },
+  {
+    icon: '🎸', name: 'Artista',
+    quote: '"A beleza e a criatividade nos definem como humanos. Não vou deixar o apocalipse tirar isso."',
+    desc: 'Sua criatividade é sua força. Você vê possibilidades onde outros veem apenas ruína.',
+    skills: ['Performance', 'Criatividade'],
+    power: { name: 'Inspiração Criativa', desc: 'Uma vez por dia, pode inspirar um aliado a ganhar +3 em um teste importante.' },
+    equip: ['Instrumento musical', 'Tintas/pincéis', 'Caderno sketchbook', 'Lanterna', 'Mochila']
+  },
+  {
+    icon: '📡', name: 'Técnico em Comunicação',
+    quote: '"Comunicação é o nervoso do mundo. Se eu posso consertar o nervoso, posso consertar tudo."',
+    desc: 'Você entende rádios, comunicações e transmissões. Você pode se conectar quando outros estão isolados.',
+    skills: ['Eletrônica', 'Comunicação'],
+    power: { name: 'Conexões Ativas', desc: 'Pode ligar equipamentos de comunicação e estabelecer contato até 50km de distância.' },
+    equip: ['Rádio portátil', 'Baterias extra', 'Antena dobrável', 'Fone de ouvido', 'Mochila eletrônica']
+  },
+  {
+    icon: '🧵', name: 'Alfaiate',
+    quote: '"Roupas e equipamento corretos podem significar a diferença entre viver e morrer."',
+    desc: 'Você costura, repara e adapta roupas e equipamentos. Sabe fazer proteções e modificações úteis.',
+    skills: ['Costura', 'Design'],
+    power: { name: 'Equipamento Reforçado', desc: 'Pode criar roupas e bolsas mais resistentes. +1 em redução de dano por proteção.' },
+    equip: ['Agulha e linha', 'Tesoura', 'Roupas extras', 'Arreios', 'Mochila reforçada']
+  },
+  {
+    icon: '⚔️', name: 'Gladiador',
+    quote: '"Toda minha vida foi luta. Zumbis não são diferentes de meus inimigos anteriores."',
+    desc: 'Você foi um lutador profissional. Disciplina, técnica e experiência em combate corpo a corpo.',
+    skills: ['Combate Corpo a Corpo', 'Resistência'],
+    power: { name: 'Técnica Superior', desc: 'Em combate corpo a corpo, seu ataque causa +2 de dano e desconsidera 1 ponto de armadura do inimigo.' },
+    equip: ['Luvas de combate', 'Bandagens', 'Escudo improvisado', 'Bastão reforçado', 'Mochila de combate']
+  },
+  {
+    icon: '🔬', name: 'Cientista',
+    quote: '"A ciência é o método. E método nunca falha, apenas revela novas verdades."',
+    desc: 'Você entende o mundo através da lógica e do método científico. Pode analisar e deduzir coisas complexas.',
+    skills: ['Ciência', 'Análise'],
+    power: { name: 'Análise Profunda', desc: 'Pode entender a natureza de qualquer situação biológica ou química em 10 minutos.' },
+    equip: ['Kit de análise', 'Microscópio portátil', 'Tubos de teste', 'Notas científicas', 'Mochila de laboratório']
+  },
+  {
+    icon: '🗺️', name: 'Cartógrafo',
+    quote: '"Mapas mentem, mas padrões não. Se você sabe ler o terreno, sempre sabe onde está."',
+    desc: 'Você criava mapas e entendia geografia. Conhece terreno, rotas e padrões do mundo.',
+    skills: ['Navegação', 'Natureza'],
+    power: { name: 'Mapa Mental', desc: 'Nunca se perde. Pode traçar rotas ótimas por qualquer lugar. +2 em navegação.' },
+    equip: ['Mapa regional', 'Bússola', 'Cordas de escalada', 'Lanterna', 'Mochila de exploração']
+  },
+  {
+    icon: '💍', name: 'Joalheiro',
+    quote: '"Mesmo no fim, o valor está nos detalhes pequenos e precisos."',
+    desc: 'Você criava jóias com precisão extrema. Suas mãos finas conseguem trabalhos delicados impossíveis para outros.',
+    skills: ['Artesanato Fino', 'Observação'],
+    power: { name: 'Mãos Precisas', desc: 'Consegue desativar armadilhas e abrir fechaduras com mais facilidade. +3 em destreza fina.' },
+    equip: ['Ferramentas de joalheiro', 'Fio fino', 'Lente de aumento', 'Pequeno tesouro', 'Mochila de precisão']
+  },
+  {
+    icon: '🐴', name: 'Cavalariço',
+    quote: '"Animais não mentem. Se você entender eles, eles não te abandonam."',
+    desc: 'Você cuidava e entendia animais. Sua empatia com criaturas é profunda.',
+    skills: ['Adestramento', 'Empatia'],
+    power: { name: 'Amigo Animal', desc: 'Pode acalmar qualquer animal. Se um o acompanhar, ganha +2 em testes relacionados àquele animal.' },
+    equip: ['Sela portátil', 'Comida de animal', 'Corda forte', 'Pentes', 'Mochila de amazém']
+  },
+  {
+    icon: '🎭', name: 'Ator',
+    quote: '"A vida é um palco. E eu sou muito bom em fingir."',
+    desc: 'Você vivia de fingimentos e criação de personagens. Sabe mentir tão bem que até você acredita.',
+    skills: ['Atuação', 'Enganação'],
+    power: { name: 'Mestre da Ilusão', desc: 'Pode ganhar uma identidade alternativa completamente convincente. +3 em enganação.' },
+    equip: ['Maquiagem', 'Roupas extras', 'Documentos falsos', 'Espelho pequeno', 'Mochila de disfarce']
+  }
 ];
 
 // Inject origins section
@@ -259,7 +538,8 @@ setTimeout(() => {
   if (origensSection) {
     origensSection.innerHTML = `
       <h3>O que você fazia antes do fim?</h3>
-      <p>Sua origem define o que você sabia fazer antes do mundo acabar.</p>
+      <p>Sua origem define o que você sabia fazer antes do mundo acabar. Escolha a origem que mais representa seu personagem.</p>
+      <p><strong>Total de Origens:</strong> 20 - Cada uma oferece habilidades, perícias e equipamentos únicos</p>
       
       <div class="origins-grid">
         ${originDetails.map(orig => `
