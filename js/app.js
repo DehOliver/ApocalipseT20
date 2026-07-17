@@ -1,3 +1,6 @@
+// ==========================================
+// DADOS DAS CLASSES
+// ==========================================
 const militaryDetails = `
   <p class="class-tagline">“A disciplina salva vidas quando o mundo entra em colapso.”</p>
   <p>O Militar representa soldados das forças armadas, policiais, agentes de segurança, guardas patrimoniais e qualquer pessoa que tenha recebido treinamento formal de combate antes do colapso. Enquanto outros lutam por instinto, ele luta por procedimento: usa coberturas, economiza munição, coordena aliados e conserva a calma diante de uma horda.</p>
@@ -287,7 +290,7 @@ const classCatalog = [
 const groups = [
   ['🏠', 'Início', [['Visão geral', 'top']]],
   ['📖', 'Introdução', [['História', 'historia'], ['Como jogar', 'como-jogar']]],
-  ['👤', 'Personagens', [['Classes', 'classes', 'personagens', classCatalog.map(([name, anchor]) => [name, anchor])], ['Origens', 'origens', 'personagens'], ['Atributos', 'atributos', 'personagens'], ['Perícias', 'pericias', 'personagens'], ['Vantagens', 'vantagens', 'personagens']]],
+  ['👤', 'Personagens', [['Classes', 'classes', 'personagens', classCatalog.map(([name, anchor]) => [name, anchor])], ['Origens', 'origens', 'personagens'], ['Atributos', 'atributos', 'personagens'], ['Perícias', 'pericias', 'personagens'], ['Talentos', 'talentos', 'personagens']]],
   ['🧟', 'Sobrevivência', [['Fome', 'fome', 'sobrevivencia'], ['Sede', 'sede', 'sobrevivencia'], ['Sono', 'sono', 'sobrevivencia'], ['Infecção', 'infeccao', 'sobrevivencia'], ['Moral', 'moral', 'sobrevivencia'], ['Tensão', 'tensao', 'sobrevivencia']]],
   ['⚔', 'Combate', [['Armas corpo a corpo', 'armas-brancas', 'combate'], ['Armas de fogo', 'armas-fogo', 'combate'], ['Munição', 'municao', 'combate'], ['Barulho', 'barulho', 'combate'], ['Mira', 'mira', 'combate'], ['Cobertura', 'cobertura', 'combate']]],
   ['☣', 'Zumbis', [['Zumbi comum', 'zumbi-comum', 'zumbis'], ['Corredor', 'corredor', 'zumbis'], ['Gordo', 'gordo', 'zumbis'], ['Espreitador', 'espreitador', 'zumbis'], ['Mutantes', 'mutantes', 'zumbis'], ['Chefes', 'chefes', 'zumbis']]],
@@ -309,11 +312,11 @@ if (classMenuLink && archetypeNavLinks.length) {
   classMenuLink.insertAdjacentElement('afterend', toggle);
   const setArchetypeNavVisibility = collapsed => {
     archetypeNavLinks.forEach(link => { link.hidden = collapsed; });
-    toggle.textContent = collapsed ? '▸ Mostrar arquétipos' : '⌄ Ocultar arquétipos';
+    toggle.textContent = collapsed ? '▸ Mostrar classes' : '⌄ Ocultar classes';
     toggle.setAttribute('aria-expanded', String(!collapsed));
-    localStorage.setItem('t20-nav-archetypes', collapsed ? 'collapsed' : 'expanded');
+    localStorage.setItem('t20-nav-classes', collapsed ? 'collapsed' : 'expanded');
   };
-  setArchetypeNavVisibility(localStorage.getItem('t20-nav-archetypes') === 'collapsed');
+  setArchetypeNavVisibility(localStorage.getItem('t20-nav-classes') === 'collapsed');
   toggle.addEventListener('click', () => setArchetypeNavVisibility(!archetypeNavLinks[0].hidden));
 }
 
@@ -330,29 +333,58 @@ groups.flatMap(([, , links]) => links).forEach(([title, anchor, parent]) => {
   target.append(article);
 });
 
+// ==========================================
+// SEÇÃO DE CLASSES
+// ==========================================
 const classesSection = document.getElementById('classes');
 if (classesSection) {
   const catalog = document.createElement('div');
   catalog.className = 'class-catalog';
-  catalog.innerHTML = `<div class="catalog-heading"><div><p class="eyebrow">ARQUÉTIPOS DISPONÍVEIS</p><p>Uma classe representa as experiências que ajudaram seu sobrevivente a chegar até aqui. Escolha aquela que melhor descreve como ele contribui para o grupo.</p></div><button class="catalog-toggle" id="catalogToggle" type="button" aria-controls="classCards" aria-expanded="true">Ocultar arquétipos</button></div><div id="classCards">${classCatalog.map(([name, anchor, description, details]) => `<article id="${anchor}" class="class-card ${details ? 'class-card--expanded' : ''}"><h4>${name}</h4>${details || `<p>${description}</p>`}</article>`).join('')}</div>`;
+  catalog.innerHTML = `<div class="catalog-heading"><div><p class="eyebrow">CLASSES DISPONÍVEIS</p><p>Uma classe representa as experiências que ajudaram seu sobrevivente a chegar até aqui. Escolha aquela que melhor descreve como ele contribui para o grupo.</p></div><button class="catalog-toggle" id="catalogToggle" type="button" aria-expanded="true">Ocultar classes</button></div><div id="classCards">${classCatalog.map(([name, anchor, description, details]) => `<article id="${anchor}" class="class-card ${details ? 'class-card--expanded' : ''}"><h4>${name}</h4>${details || `<p>${description}</p>`}</article>`).join('')}</div>`;
   classesSection.append(catalog);
 
   const catalogToggle = document.querySelector('#catalogToggle');
   const classCards = document.querySelector('#classCards');
+  
   const setCatalogVisibility = collapsed => {
-    classCards.hidden = collapsed;
+    classCards.style.display = collapsed ? 'none' : '';
     catalogToggle.setAttribute('aria-expanded', String(!collapsed));
-    catalogToggle.textContent = collapsed ? 'Mostrar arquétipos' : 'Ocultar arquétipos';
+    catalogToggle.textContent = collapsed ? 'Mostrar classes' : 'Ocultar classes';
     localStorage.setItem('t20-class-catalog', collapsed ? 'collapsed' : 'expanded');
+
+    // Also sync the sidebar (nav) state so hiding the catalog hides sidebar class links
+    const navArchetypeLinks = nav.querySelectorAll('.nav-sub-link');
+    if (navArchetypeLinks.length) navArchetypeLinks.forEach(link => { link.hidden = collapsed; });
+    const navArchetypeToggle = nav.querySelector('.nav-archetype-toggle');
+    if (navArchetypeToggle) {
+      navArchetypeToggle.textContent = collapsed ? '▸ Mostrar classes' : '⌄ Ocultar classes';
+      navArchetypeToggle.setAttribute('aria-expanded', String(!collapsed));
+      localStorage.setItem('t20-nav-classes', collapsed ? 'collapsed' : 'expanded');
+    }
   };
+  
   setCatalogVisibility(localStorage.getItem('t20-class-catalog') === 'collapsed');
-  catalogToggle.addEventListener('click', () => setCatalogVisibility(!classCards.hidden));
+  catalogToggle.addEventListener('click', () => setCatalogVisibility(classCards.style.display !== 'none'));
+
+  // When the sidebar toggle is clicked, also toggle the main catalog to keep both in sync
+  const navArchetypeToggleButton = nav.querySelector('.nav-archetype-toggle');
+  if (navArchetypeToggleButton) {
+    navArchetypeToggleButton.addEventListener('click', () => {
+      // Allow the nav handler to run first; then read the resulting hidden state
+      setTimeout(() => {
+        const collapsed = nav.querySelectorAll('.nav-sub-link')[0]?.hidden === true;
+        if (typeof collapsed === 'boolean') setCatalogVisibility(collapsed);
+      }, 0);
+    });
+  }
+  
   nav.addEventListener('click', event => {
     const anchor = event.target.closest('a')?.getAttribute('href');
-    if (anchor && classCards.hidden && classCards.querySelector(anchor)) setCatalogVisibility(false);
+    if (anchor && classCards.style.display === 'none' && classCards.querySelector(anchor)) setCatalogVisibility(false);
   });
 }
 
+// Eventos e UI Geral
 const body = document.body;
 const themeButton = document.querySelector('#themeButton');
 const savedTheme = localStorage.getItem('t20-theme');
@@ -388,175 +420,40 @@ results.addEventListener('click', () => { results.classList.remove('visible'); s
 // CATÁLOGO DE ORIGENS
 // ==========================================
 const originsCatalog = [
-  {
-    icon: '🏠', name: 'Civil Comum',
-    quote: 'Você era apenas mais uma pessoa tentando viver sua vida quando tudo acabou.',
-    desc: 'Você não possuía treinamento especializado, mas aprendeu a sobreviver enfrentando desafios como qualquer outra pessoa.',
-    skills: 'Vontade, Intuição',
-    powerName: 'Adaptável', powerDesc: 'Uma vez por cena, pode repetir um teste de perícia que tenha falhado. Deve aceitar o novo resultado.',
-    items: 'Mochila, Lanterna, Cantil, Canivete, Cobertor'
-  },
-  {
-    icon: '🎖', name: 'Veterano',
-    quote: 'Você já conhecia a violência muito antes do fim do mundo.',
-    desc: 'Experiências anteriores em conflitos o prepararam para manter a calma sob pressão.',
-    skills: 'Pontaria, Guerra',
-    powerName: 'Sangue Frio', powerDesc: 'Recebe +2 em testes contra medo, pânico e intimidação.',
-    items: 'Faca de combate, Colete leve, Lanterna tática, Binóculo, Kit de limpeza de armas'
-  },
-  {
-    icon: '🔥', name: 'Sobrevivente Nato',
-    quote: 'Você aprendeu cedo que ninguém sobreviveria por você.',
-    desc: 'Você desenvolveu instintos apurados para enfrentar situações extremas.',
-    skills: 'Sobrevivência, Percepção',
-    powerName: 'Instinto de Sobrevivência', powerDesc: 'Recebe +2 em testes para evitar emboscadas, armadilhas e perigos naturais.',
-    items: 'Cantil, Faca, Mochila, Corda, Isqueiro'
-  },
-  {
-    icon: '🎒', name: 'Saqueador',
-    quote: 'Os recursos estão escondidos. Você sabe onde procurar.',
-    desc: 'Você desenvolveu técnicas para entrar, vasculhar e sair de locais perigosos rapidamente.',
-    skills: 'Investigação, Furtividade',
-    powerName: 'Olhos Afiados', powerDesc: 'Recebe +2 em testes para encontrar suprimentos durante saques.',
-    items: 'Pé de cabra, Mochila, Lanterna, Canivete, Luvas'
-  },
-  {
-    icon: '🗺', name: 'Explorador',
-    quote: 'Cada rua pode esconder uma ameaça... ou uma oportunidade.',
-    desc: 'Você está acostumado a descobrir caminhos, mapear áreas e reconhecer terrenos.',
-    skills: 'Sobrevivência, Atletismo',
-    powerName: 'Reconhecimento', powerDesc: 'Recebe +2 em testes para navegar e evitar se perder.',
-    items: 'Bússola, Binóculo, Corda, Mapa, Cantil'
-  },
-  {
-    icon: '🏕', name: 'Campista',
-    quote: 'Você se sente mais confortável dormindo sob as estrelas do que entre quatro paredes.',
-    desc: 'Anos de acampamentos ensinaram como viver com poucos recursos.',
-    skills: 'Sobrevivência, Ofício',
-    powerName: 'Vida ao Ar Livre', powerDesc: 'Recebe +2 em testes para montar acampamentos e reduzir os efeitos do clima.',
-    items: 'Barraca, Saco de dormir, Cantil, Isqueiro, Machado'
-  },
-  {
-    icon: '🚗', name: 'Estradeiro',
-    quote: 'Nenhuma estrada é longa demais quando você sabe para onde está indo.',
-    desc: 'Você passou boa parte da vida viajando.',
-    skills: 'Pilotagem, Sobrevivência',
-    powerName: 'Direção Econômica', powerDesc: 'Veículos conduzidos por você consomem menos combustível em viagens longas.',
-    items: 'Rádio, Mapa rodoviário, Caixa de ferramentas, Lanterna, Mochila'
-  },
-  {
-    icon: '🔧', name: 'Faz-Tudo',
-    quote: 'Sempre existe uma maneira de fazer funcionar.',
-    desc: 'Você aprendeu um pouco de tudo.',
-    skills: 'Ofício, Tecnologia',
-    powerName: 'Improvisador', powerDesc: 'Recebe +2 para fabricar ou reparar objetos improvisados.',
-    items: 'Caixa de ferramentas, Alicate, Fita isolante, Martelo, Chave inglesa'
-  },
-  {
-    icon: '🩹', name: 'Cuidador',
-    quote: 'Nem sempre é preciso ser médico para salvar uma vida.',
-    desc: 'Você sempre cuidou das pessoas ao seu redor.',
-    skills: 'Medicina, Intuição',
-    powerName: 'Primeiros Socorros', powerDesc: 'Recebe +2 em testes de Medicina para estabilizar aliados.',
-    items: 'Bandagens, Kit de primeiros socorros, Antisséptico, Analgésicos, Luvas'
-  },
-  {
-    icon: '🛡', name: 'Protetor',
-    quote: 'Enquanto eu estiver de pé, ninguém passa.',
-    desc: 'Você sempre colocou a segurança dos outros acima da sua.',
-    skills: 'Luta, Atletismo',
-    powerName: 'Escudo Humano', powerDesc: 'Uma vez por cena, pode sofrer um ataque destinado a um aliado adjacente.',
-    items: 'Escudo improvisado, Bastão, Capacete, Colete leve, Lanterna'
-  },
-  {
-    icon: '🚨', name: 'Resgatista',
-    quote: 'Desistir de alguém nunca foi uma opção.',
-    desc: 'Você está acostumado a salvar pessoas em situações críticas.',
-    skills: 'Atletismo, Medicina',
-    powerName: 'Resgate', powerDesc: 'Pode carregar um aliado inconsciente sem reduzir seu deslocamento e recebe +2 em testes para retirar pessoas de escombros, incêndios ou veículos.',
-    items: 'Machado, Pé de cabra, Corda, Kit de primeiros socorros, Lanterna'
-  },
-  {
-    icon: '🤝', name: 'Comunitário',
-    quote: 'Ninguém sobrevive sozinho.',
-    desc: 'Você sempre viveu cercado por pessoas e sabe trabalhar em equipe.',
-    skills: 'Diplomacia, Intuição',
-    powerName: 'Espírito de Equipe', powerDesc: 'Sempre que ajudar um aliado, ele recebe +1 adicional no teste.',
-    items: 'Rádio, Mochila, Cantil, Cobertor, Bloco de notas'
-  },
-  {
-    icon: '🎭', name: 'Manipulador',
-    quote: 'As pessoas acreditam no que querem ouvir.',
-    desc: 'Você domina a arte da persuasão.',
-    skills: 'Enganação, Diplomacia',
-    powerName: 'Boa Conversa', powerDesc: 'Recebe +2 em testes de Enganação e Diplomacia durante negociações.',
-    items: 'Gravador, Celular descarregado, Bloco de notas, Canivete, Rádio'
-  },
-  {
-    icon: '🎯', name: 'Atirador Esportivo',
-    quote: 'Precisão sempre foi um esporte. Agora é sobrevivência.',
-    desc: 'Você treinava tiro por hobby antes do colapso.',
-    skills: 'Pontaria, Percepção',
-    powerName: 'Mira Treinada', powerDesc: 'Recebe +1 nas jogadas de ataque com armas de fogo de disparo único.',
-    items: 'Pistola, Kit de limpeza, Binóculo, Protetor auricular, Lanterna'
-  },
-  {
-    icon: '🦌', name: 'Caçador',
-    quote: 'A natureza sempre oferece alimento para quem sabe procurar.',
-    desc: 'Você sabe rastrear, caçar e sobreviver longe das cidades.',
-    skills: 'Sobrevivência, Percepção',
-    powerName: 'Rastreador', powerDesc: 'Recebe +2 em testes para seguir rastros e encontrar alimento natural.',
-    items: 'Rifle de caça, Facão, Binóculo, Cantil, Corda'
-  },
-  {
-    icon: '📦', name: 'Colecionador',
-    quote: 'Nada deve ser desperdiçado.',
-    desc: 'Você sempre guardou objetos que poderiam ser úteis.',
-    skills: 'Investigação, Ofício',
-    powerName: 'Aproveitamento Máximo', powerDesc: 'Sempre que desmontar um item, recupera mais materiais que o normal.',
-    items: 'Mochila grande, Caixa organizadora, Alicate, Lanterna, Canivete'
-  },
-  {
-    icon: '📚', name: 'Estudioso',
-    quote: 'Conhecimento continua sendo a ferramenta mais poderosa.',
-    desc: 'Você dedicou sua vida aos estudos e à pesquisa.',
-    skills: 'Ciências, Investigação',
-    powerName: 'Mente Analítica', powerDesc: 'Recebe +2 em testes para identificar substâncias, doenças e equipamentos.',
-    items: 'Livros, Bloco de anotações, Lanterna, Mochila, Lupa'
-  },
-  {
-    icon: '🏚', name: 'Isolado',
-    quote: 'Você aprendeu a depender apenas de si mesmo.',
-    desc: 'Você viveu longe da sociedade ou escolheu esse caminho.',
-    skills: 'Sobrevivência, Vontade',
-    powerName: 'Autossuficiente', powerDesc: 'Recebe +2 em testes para resistir à fome, sede e fadiga.',
-    items: 'Machado, Cantil, Corda, Isqueiro, Mochila'
-  },
-  {
-    icon: '🌆', name: 'Sobrevivente de Rua',
-    quote: 'Você conhecia a luta pela sobrevivência antes de ela virar a realidade de todos.',
-    desc: 'Anos vivendo nas ruas ensinaram você a improvisar, encontrar abrigo e aproveitar qualquer recurso disponível.',
-    skills: 'Furtividade, Sobrevivência',
-    powerName: 'Vira-Lata', powerDesc: 'Recebe +2 em testes para encontrar abrigo improvisado, comida descartada e objetos úteis em ambientes urbanos.',
-    items: 'Cobertor, Canivete, Mochila, Luvas, Pé de cabra'
-  },
-  {
-    icon: '🥫', name: 'Preparador (Prepper)',
-    quote: 'Enquanto todos riam de você, você já estava se preparando para o pior.',
-    desc: 'Você sempre acreditou que um grande desastre aconteceria e passou anos acumulando suprimentos, aprendendo técnicas de sobrevivência e planejando contingências.',
-    skills: 'Sobrevivência, Investigação',
-    powerName: 'Plano B', powerDesc: 'Uma vez por sessão, quando o grupo precisar de um item comum, você pode declarar que havia guardado esse item em sua mochila, desde que plausível.',
-    items: 'Mochila grande, Cantil, Kit de primeiros socorros, Corda, Filtro de água'
-  }
+  { icon: '🏠', name: 'Civil Comum', quote: 'Você era apenas mais uma pessoa tentando viver sua vida quando tudo acabou.', desc: 'Você não possuía treinamento especializado, mas aprendeu a sobreviver enfrentando desafios como qualquer outra pessoa.', skills: 'Vontade, Intuição', powerName: 'Adaptável', powerDesc: 'Uma vez por cena, pode repetir um teste de perícia que tenha falhado. Deve aceitar o novo resultado.', items: 'Mochila, Lanterna, Cantil, Canivete, Cobertor' },
+  { icon: '🎖', name: 'Veterano', quote: 'Você já conhecia a violência muito antes do fim do mundo.', desc: 'Experiências anteriores em conflitos o prepararam para manter a calma sob pressão.', skills: 'Pontaria, Guerra', powerName: 'Sangue Frio', powerDesc: 'Recebe +2 em testes contra medo, pânico e intimidação.', items: 'Faca de combate, Colete leve, Lanterna tática, Binóculo, Kit de limpeza de armas' },
+  { icon: '🔥', name: 'Sobrevivente Nato', quote: 'Você aprendeu cedo que ninguém sobreviveria por você.', desc: 'Você desenvolveu instintos apurados para enfrentar situações extremas.', skills: 'Sobrevivência, Percepção', powerName: 'Instinto de Sobrevivência', powerDesc: 'Recebe +2 em testes para evitar emboscadas, armadilhas e perigos naturais.', items: 'Cantil, Faca, Mochila, Corda, Isqueiro' },
+  { icon: '🎒', name: 'Saqueador', quote: 'Os recursos estão escondidos. Você sabe onde procurar.', desc: 'Você desenvolveu técnicas para entrar, vasculhar e sair de locais perigosos rapidamente.', skills: 'Investigação, Furtividade', powerName: 'Olhos Afiados', powerDesc: 'Recebe +2 em testes para encontrar suprimentos durante saques.', items: 'Pé de cabra, Mochila, Lanterna, Canivete, Luvas' },
+  { icon: '🗺', name: 'Explorador', quote: 'Cada rua pode esconder uma ameaça... ou uma oportunidade.', desc: 'Você está acostumado a descobrir caminhos, mapear áreas e reconhecer terrenos.', skills: 'Sobrevivência, Atletismo', powerName: 'Reconhecimento', powerDesc: 'Recebe +2 em testes para navegar e evitar se perder.', items: 'Bússola, Binóculo, Corda, Mapa, Cantil' },
+  { icon: '🏕', name: 'Campista', quote: 'Você se sente mais confortável dormindo sob as estrelas do que entre quatro paredes.', desc: 'Anos de acampamentos ensinaram como viver com poucos recursos.', skills: 'Sobrevivência, Ofício', powerName: 'Vida ao Ar Livre', powerDesc: 'Recebe +2 em testes para montar acampamentos e reduzir os efeitos do clima.', items: 'Barraca, Saco de dormir, Cantil, Isqueiro, Machado' },
+  { icon: '🚗', name: 'Estradeiro', quote: 'Nenhuma estrada é longa demais quando você sabe para onde está indo.', desc: 'Você passou boa parte da vida viajando.', skills: 'Pilotagem, Sobrevivência', powerName: 'Direção Econômica', powerDesc: 'Veículos conduzidos por você consomem menos combustível em viagens longas.', items: 'Rádio, Mapa rodoviário, Caixa de ferramentas, Lanterna, Mochila' },
+  { icon: '🔧', name: 'Faz-Tudo', quote: 'Sempre existe uma maneira de fazer funcionar.', desc: 'Você aprendeu um pouco de tudo.', skills: 'Ofício, Tecnologia', powerName: 'Improvisador', powerDesc: 'Recebe +2 para fabricar ou reparar objetos improvisados.', items: 'Caixa de ferramentas, Alicate, Fita isolante, Martelo, Chave inglesa' },
+  { icon: '🩹', name: 'Cuidador', quote: 'Nem sempre é preciso ser médico para salvar uma vida.', desc: 'Você sempre cuidou das pessoas ao seu redor.', skills: 'Medicina, Intuição', powerName: 'Primeiros Socorros', powerDesc: 'Recebe +2 em testes de Medicina para estabilizar aliados.', items: 'Bandagens, Kit de primeiros socorros, Antisséptico, Analgésicos, Luvas' },
+  { icon: '🛡', name: 'Protetor', quote: 'Enquanto eu estiver de pé, ninguém passa.', desc: 'Você sempre colocou a segurança dos outros acima da sua.', skills: 'Luta, Atletismo', powerName: 'Escudo Humano', powerDesc: 'Uma vez por cena, pode sofrer um ataque destinado a um aliado adjacente.', items: 'Escudo improvisado, Bastão, Capacete, Colete leve, Lanterna' },
+  { icon: '🚨', name: 'Resgatista', quote: 'Desistir de alguém nunca foi uma opção.', desc: 'Você está acostumado a salvar pessoas em situações críticas.', skills: 'Atletismo, Medicina', powerName: 'Resgate', powerDesc: 'Pode carregar um aliado inconsciente sem reduzir seu deslocamento e recebe +2 em testes para retirar pessoas de escombros, incêndios ou veículos.', items: 'Machado, Pé de cabra, Corda, Kit de primeiros socorros, Lanterna' },
+  { icon: '🤝', name: 'Comunitário', quote: 'Ninguém sobrevive sozinho.', desc: 'Você sempre viveu cercado por pessoas e sabe trabalhar em equipe.', skills: 'Diplomacia, Intuição', powerName: 'Espírito de Equipe', powerDesc: 'Sempre que ajudar um aliado, ele recebe +1 adicional no teste.', items: 'Rádio, Mochila, Cantil, Cobertor, Bloco de notas' },
+  { icon: '🎭', name: 'Manipulador', quote: 'As pessoas acreditam no que querem ouvir.', desc: 'Você domina a arte da persuasão.', skills: 'Enganação, Diplomacia', powerName: 'Boa Conversa', powerDesc: 'Recebe +2 em testes de Enganação e Diplomacia durante negociações.', items: 'Gravador, Celular descarregado, Bloco de notas, Canivete, Rádio' },
+  { icon: '🎯', name: 'Atirador Esportivo', quote: 'Precisão sempre foi um esporte. Agora é sobrevivência.', desc: 'Você treinava tiro por hobby antes do colapso.', skills: 'Pontaria, Percepção', powerName: 'Mira Treinada', powerDesc: 'Recebe +1 nas jogadas de ataque com armas de fogo de disparo único.', items: 'Pistola, Kit de limpeza, Binóculo, Protetor auricular, Lanterna' },
+  { icon: '🦌', name: 'Caçador', quote: 'A natureza sempre oferece alimento para quem sabe procurar.', desc: 'Você sabe rastrear, caçar e sobreviver longe das cidades.', skills: 'Sobrevivência, Percepção', powerName: 'Rastreador', powerDesc: 'Recebe +2 em testes para seguir rastros e encontrar alimento natural.', items: 'Rifle de caça, Facão, Binóculo, Cantil, Corda' },
+  { icon: '📦', name: 'Colecionador', quote: 'Nada deve ser desperdiçado.', desc: 'Você sempre guardou objetos que poderiam ser úteis.', skills: 'Investigação, Ofício', powerName: 'Aproveitamento Máximo', powerDesc: 'Sempre que desmontar um item, recupera mais materiais que o normal.', items: 'Mochila grande, Caixa organizadora, Alicate, Lanterna, Canivete' },
+  { icon: '📚', name: 'Estudioso', quote: 'Conhecimento continua sendo a ferramenta mais poderosa.', desc: 'Você dedicou sua vida aos estudos e à pesquisa.', skills: 'Ciências, Investigação', powerName: 'Mente Analítica', powerDesc: 'Recebe +2 em testes para identificar substâncias, doenças e equipamentos.', items: 'Livros, Bloco de anotações, Lanterna, Mochila, Lupa' },
+  { icon: '🏚', name: 'Isolado', quote: 'Você aprendeu a depender apenas de si mesmo.', desc: 'Você viveu longe da sociedade ou escolheu esse caminho.', skills: 'Sobrevivência, Vontade', powerName: 'Autossuficiente', powerDesc: 'Recebe +2 em testes para resistir à fome, sede e fadiga.', items: 'Machado, Cantil, Corda, Isqueiro, Mochila' },
+  { icon: '🌆', name: 'Sobrevivente de Rua', quote: 'Você conhecia a luta pela sobrevivência antes de ela virar a realidade de todos.', desc: 'Anos vivendo nas ruas ensinaram você a improvisar, encontrar abrigo e aproveitar qualquer recurso disponível.', skills: 'Furtividade, Sobrevivência', powerName: 'Vira-Lata', powerDesc: 'Recebe +2 em testes para encontrar abrigo improvisado, comida descartada e objetos úteis em ambientes urbanos.', items: 'Cobertor, Canivete, Mochila, Luvas, Pé de cabra' },
+  { icon: '🥫', name: 'Preparador (Prepper)', quote: 'Enquanto todos riam de você, você já estava se preparando para o pior.', desc: 'Você sempre acreditou que um grande desastre aconteceria e passou anos acumulando suprimentos, aprendendo técnicas de sobrevivência e planejando contingências.', skills: 'Sobrevivência, Investigação', powerName: 'Plano B', powerDesc: 'Uma vez por sessão, quando o grupo precisar de um item comum, você pode declarar que havia guardado esse item em sua mochila, desde que plausível.', items: 'Mochila grande, Cantil, Kit de primeiros socorros, Corda, Filtro de água' }
 ];
 
 setTimeout(() => {
   const origensSection = document.getElementById('origens');
   if (origensSection) {
     origensSection.innerHTML = `
-      <h3>Origens</h3>
-      <p>O que você fazia antes do fim? Sua origem define o que você sabia fazer antes do mundo acabar, rendendo perícias bônus, itens iniciais e vantagens exclusivas.</p>
-      <div class="origins-grid">
+      <div class="catalog-heading">
+        <div>
+          <h3>Origens</h3>
+          <p>O que você fazia antes do fim? Sua origem define o que você sabia fazer antes do mundo acabar, rendendo perícias bônus, itens iniciais e vantagens exclusivas.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleOrigensBtn" type="button" aria-expanded="true">Ocultar origens</button>
+      </div>
+      <div id="origensWrapper" class="origins-grid">
         ${originsCatalog.map(orig => `
           <article class="origin-card">
             <header class="origin-header">
@@ -584,6 +481,24 @@ setTimeout(() => {
         `).join('')}
       </div>
     `;
+
+    const toggleOrigensBtn = document.getElementById('toggleOrigensBtn');
+    const origensWrapper = document.getElementById('origensWrapper');
+    if (toggleOrigensBtn && origensWrapper) {
+      const setOrigensVisibility = collapsed => {
+        origensWrapper.style.display = collapsed ? 'none' : '';
+        toggleOrigensBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleOrigensBtn.textContent = collapsed ? 'Exibir origens' : 'Ocultar origens';
+        localStorage.setItem('t20-origens', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-origens') === 'collapsed';
+      setOrigensVisibility(isCollapsed);
+      
+      toggleOrigensBtn.addEventListener('click', () => {
+        setOrigensVisibility(origensWrapper.style.display !== 'none');
+      });
+    }
   }
 }, 100);
 
@@ -591,36 +506,11 @@ setTimeout(() => {
 // SEÇÃO DE ATRIBUTOS
 // ==========================================
 const attributesCatalog = [
-  {
-    icon: '💪', name: 'Força',
-    quote: 'Quando não há outra opção, a força abre o caminho.',
-    desc: '<p>A Força representa o poder físico bruto do personagem. Ela determina sua capacidade de levantar peso, quebrar obstáculos, empurrar objetos pesados e lutar em combate corpo a corpo.</p><p>Personagens com alta Força conseguem utilizar armas pesadas com maior eficiência, carregar mais equipamentos e resistir melhor às exigências físicas do ambiente.</p>',
-    uses: ['Ataques corpo a corpo.', 'Arrombar portas.', 'Derrubar obstáculos.', 'Empurrar veículos.', 'Escalar utilizando força bruta.', 'Agarrar ou imobilizar inimigos.', 'Determinar a capacidade de carga do personagem.']
-  },
-  {
-    icon: '🏃', name: 'Destreza',
-    quote: 'Velocidade e precisão salvam mais vidas do que força descontrolada.',
-    desc: '<p>Destreza representa coordenação motora, agilidade, reflexos e precisão dos movimentos. Ela influencia a capacidade do personagem de mirar com armas de fogo, mover-se silenciosamente, escapar de perigos e executar ações delicadas.</p><p>Personagens com alta Destreza costumam agir antes dos demais, acertar disparos com maior facilidade e evitar ataques.</p>',
-    uses: ['Ataques à distância.', 'Esquiva.', 'Furtividade.', 'Reflexos.', 'Equilíbrio.', 'Arrombamentos delicados.', 'Escalada ágil.', 'Condução precisa de veículos.']
-  },
-  {
-    icon: '❤️', name: 'Constituição',
-    quote: 'Sobreviver é resistir quando todos os outros desistem.',
-    desc: '<p>Constituição representa a resistência física e mental do personagem diante das adversidades. Ela determina seus Pontos de Vida, resistência ao cansaço, doenças, fome, sede e infecções.</p><p>Em um cenário de apocalipse, onde recursos são escassos e o ambiente é tão perigoso quanto os inimigos, Constituição é um dos atributos mais importantes para garantir a sobrevivência a longo prazo.</p>',
-    uses: ['Resistir à fome.', 'Resistir à sede.', 'Suportar noites sem dormir.', 'Enfrentar doenças.', 'Resistir à infecção.', 'Resistir ao frio ou calor extremos.', 'Recuperação durante descansos.', 'Testes de resistência física.']
-  },
-  {
-    icon: '🧠', name: 'Inteligência',
-    quote: 'Conhecimento transforma problemas em soluções.',
-    desc: '<p>Inteligência representa raciocínio lógico, memória, capacidade de aprendizado e conhecimento técnico. Ela é utilizada para operar equipamentos, interpretar informações, fabricar objetos, reparar máquinas, realizar procedimentos médicos e compreender o funcionamento do mundo.</p><p>Além do conhecimento adquirido antes do apocalipse, Inteligência também representa a capacidade de improvisar soluções utilizando os recursos disponíveis.</p>',
-    uses: ['Medicina.', 'Tecnologia.', 'Investigação.', 'Ciências.', 'Fabricação.', 'Reparos.', 'Montagem de armadilhas.', 'Planejamento.', 'Decifrar documentos ou mapas.']
-  },
-  {
-    icon: '🗣', name: 'Carisma',
-    quote: 'No fim do mundo, convencer alguém pode valer mais do que uma arma carregada.',
-    desc: '<p>Carisma representa personalidade, confiança, liderança, determinação e influência sobre outras pessoas. Mais do que simplesmente falar bem, esse atributo mede a capacidade do personagem de inspirar aliados, negociar recursos, intimidar inimigos e manter a calma em situações críticas.</p><p>Em um mundo onde comunidades dependem da cooperação para sobreviver, o Carisma pode decidir o destino de um grupo inteiro.</p>',
-    uses: ['Diplomacia.', 'Enganação.', 'Intimidação.', 'Liderança.', 'Negociações.', 'Recrutamento de sobreviventes.', 'Discursos motivacionais.', 'Resistência ao desespero e à pressão social.']
-  }
+  { icon: '💪', name: 'Força', quote: 'Quando não há outra opção, a força abre o caminho.', desc: '<p>A Força representa o poder físico bruto do personagem. Ela determina sua capacidade de levantar peso, quebrar obstáculos, empurrar objetos pesados e lutar em combate corpo a corpo.</p><p>Personagens com alta Força conseguem utilizar armas pesadas com maior eficiência, carregar mais equipamentos e resistir melhor às exigências físicas do ambiente.</p>', uses: ['Ataques corpo a corpo.', 'Arrombar portas.', 'Derrubar obstáculos.', 'Empurrar veículos.', 'Escalar utilizando força bruta.', 'Agarrar ou imobilizar inimigos.', 'Determinar a capacidade de carga do personagem.'] },
+  { icon: '🏃', name: 'Destreza', quote: 'Velocidade e precisão salvam mais vidas do que força descontrolada.', desc: '<p>Destreza representa coordenação motora, agilidade, reflexos e precisão dos movimentos. Ela influencia a capacidade do personagem de mirar com armas de fogo, mover-se silenciosamente, escapar de perigos e executar ações delicadas.</p><p>Personagens com alta Destreza costumam agir antes dos demais, acertar disparos com maior facilidade e evitar ataques.</p>', uses: ['Ataques à distância.', 'Esquiva.', 'Furtividade.', 'Reflexos.', 'Equilíbrio.', 'Arrombamentos delicados.', 'Escalada ágil.', 'Condução precisa de veículos.'] },
+  { icon: '❤️', name: 'Constituição', quote: 'Sobreviver é resistir quando todos os outros desistem.', desc: '<p>Constituição representa a resistência física e mental do personagem diante das adversidades. Ela determina seus Pontos de Vida, resistência ao cansaço, doenças, fome, sede e infecções.</p><p>Em um cenário de apocalipse, onde recursos são escassos e o ambiente é tão perigoso quanto os inimigos, Constituição é um dos atributos mais importantes para garantir a sobrevivência a longo prazo.</p>', uses: ['Resistir à fome.', 'Resistir à sede.', 'Suportar noites sem dormir.', 'Enfrentar doenças.', 'Resistir à infecção.', 'Resistir ao frio ou calor extremos.', 'Recuperação durante descansos.', 'Testes de resistência física.'] },
+  { icon: '🧠', name: 'Inteligência', quote: 'Conhecimento transforma problemas em soluções.', desc: '<p>Inteligência representa raciocínio lógico, memória, capacidade de aprendizado e conhecimento técnico. Ela é utilizada para operar equipamentos, interpretar informações, fabricar objetos, reparar máquinas, realizar procedimentos médicos e compreender o funcionamento do mundo.</p><p>Além do conhecimento adquirido antes do apocalipse, Inteligência também representa a capacidade de improvisar soluções utilizando os recursos disponíveis.</p>', uses: ['Medicina.', 'Tecnologia.', 'Investigação.', 'Ciências.', 'Fabricação.', 'Reparos.', 'Montagem de armadilhas.', 'Planejamento.', 'Decifrar documentos ou mapas.'] },
+  { icon: '🗣', name: 'Carisma', quote: 'No fim do mundo, convencer alguém pode valer mais do que uma arma carregada.', desc: '<p>Carisma representa personalidade, confiança, liderança, determinação e influência sobre outras pessoas. Mais do que simplesmente falar bem, esse atributo mede a capacidade do personagem de inspirar aliados, negociar recursos, intimidar inimigos e manter a calma em situações críticas.</p><p>Em um mundo onde comunidades dependem da cooperação para sobreviver, o Carisma pode decidir o destino de um grupo inteiro.</p>', uses: ['Diplomacia.', 'Enganação.', 'Intimidação.', 'Liderança.', 'Negociações.', 'Recrutamento de sobreviventes.', 'Discursos motivacionais.', 'Resistência ao desespero e à pressão social.'] }
 ];
 
 setTimeout(() => {
@@ -718,9 +608,15 @@ setTimeout(() => {
         `).join('')}
       </div>
 
-      <h4>Descrição das Perícias</h4>
-      <p>Abaixo estão detalhadas as utilidades e focos de cada uma das 24 perícias disponíveis para o seu sobrevivente:</p>
-      <div class="skill-desc-grid">
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <h4>Descrição das Perícias</h4>
+          <p>Abaixo estão detalhadas as utilidades e focos de cada uma das 24 perícias disponíveis para o seu sobrevivente:</p>
+        </div>
+        <button class="catalog-toggle" id="togglePericiasBtn" type="button" aria-expanded="true">Ocultar descrições</button>
+      </div>
+
+      <div id="periciasDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
         ${skillsCatalog.map(s => `
           <div class="sd-card">
             <h5>${s.name} <span>${s.attr}</span></h5>
@@ -773,5 +669,170 @@ setTimeout(() => {
 
       <p>Ao longo da campanha, o treinamento em perícias pode evoluir conforme o personagem ganha experiência, representando o aprendizado adquirido ao enfrentar os desafios do apocalipse. Escolher em quais perícias investir é uma decisão importante, pois elas definem aquilo em que seu sobrevivente realmente se destaca quando a situação fica crítica.</p>
     `;
+
+    const togglePericiasBtn = document.getElementById('togglePericiasBtn');
+    const periciasDetailsWrapper = document.getElementById('periciasDetailsWrapper');
+    if (togglePericiasBtn && periciasDetailsWrapper) {
+      const setPericiasVisibility = collapsed => {
+        periciasDetailsWrapper.style.display = collapsed ? 'none' : '';
+        togglePericiasBtn.setAttribute('aria-expanded', String(!collapsed));
+        togglePericiasBtn.textContent = collapsed ? 'Exibir descrições' : 'Ocultar descrições';
+        localStorage.setItem('t20-pericias-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-pericias-desc') === 'collapsed';
+      setPericiasVisibility(isCollapsed);
+      
+      togglePericiasBtn.addEventListener('click', () => {
+        setPericiasVisibility(periciasDetailsWrapper.style.display !== 'none');
+      });
+    }
   }
 }, 200);
+
+// ==========================================
+// SEÇÃO DE TALENTOS
+// ==========================================
+const talentosData = [
+  {
+    title: 'Talentos Físicos', tag: 'Físico', desc: 'Representam preparo físico, resistência e capacidade atlética.',
+    talents: [
+      { name: 'Corredor', focus: 'Mobilidade', effect: '<p>Seu deslocamento aumenta em +3 metros.</p><p>Além disso, recebe +2 em testes de Atletismo para correr, perseguir ou fugir.</p>' },
+      { name: 'Braços Fortes', focus: 'Carga e força', effect: '<p>Sua capacidade de carga aumenta em 50%.</p><p>Recebe +2 em testes para empurrar, levantar ou destruir obstáculos.</p>' },
+      { name: 'Escalador', focus: 'Terreno', effect: '<p>Escalar não reduz seu deslocamento.</p><p>Além disso, recebe +5 em testes de Atletismo para escalar.</p>' },
+      { name: 'Pulmão de Ferro', focus: 'Resistência', effect: '<p>Recebe +5 em testes de Fortitude contra fadiga, fumaça e esforço prolongado.</p>' },
+      { name: 'Resistente', focus: 'Recuperação', effect: '<p>Sempre que recuperar Pontos de Vida durante um descanso, recupera +2 PV adicionais por nível de personagem.</p>' }
+    ]
+  },
+  {
+    title: 'Talentos de Combate', tag: 'Combate', desc: 'Especializam o personagem em confrontos.',
+    talents: [
+      { name: 'Mira Precisa', focus: 'Precisão', effect: '<p>Recebe +1 nas jogadas de ataque com armas de fogo.</p>' },
+      { name: 'Saque Rápido', focus: 'Agilidade', effect: '<p>Trocar ou sacar uma arma não exige ação.</p>' },
+      { name: 'Combate Defensivo', focus: 'Cobertura', effect: '<p>Enquanto estiver utilizando cobertura.</p><p>Recebe +2 na Defesa.</p>' },
+      { name: 'Especialista em Armas Brancas', focus: 'Dano corpo a corpo', effect: '<p>Recebe +2 nas jogadas de dano com armas corpo a corpo leves.</p>' },
+      { name: 'Tiro Controlado', focus: 'Precisão à distância', effect: '<p>Quando realizar um disparo único.</p><p>Ignora até -2 de penalidades causadas por distância ou cobertura parcial.</p>' }
+    ]
+  },
+  {
+    title: 'Talentos de Sobrevivência', tag: 'Sobrevivência', desc: 'Essenciais para sobreviver no apocalipse.',
+    talents: [
+      { name: 'Coletor', focus: 'Saques', effect: '<p>Sempre que encontrar suprimentos.</p><p>Recebe um recurso adicional, escolhido pelo Mestre.</p>' },
+      { name: 'Cozinheiro', focus: 'Alimentação', effect: '<p>As refeições preparadas por você recuperam 1 ponto adicional de Moral e reduzem a Fome em um estágio extra.</p>' },
+      { name: 'Catador', focus: 'Recursos', effect: '<p>Ao desmontar equipamentos.</p><p>Recupera 1 componente extra.</p>' },
+      { name: 'Dorme em Qualquer Lugar', focus: 'Descanso', effect: '<p>Você ignora penalidades por descansar em locais improvisados.</p>' },
+      { name: 'Estômago de Ferro', focus: 'Resistência', effect: '<p>Recebe +5 contra doenças, intoxicações e alimentos estragados.</p>' }
+    ]
+  },
+  {
+    title: 'Talentos Técnicos', tag: 'Técnico', desc: 'Voltados para fabricação e manutenção.',
+    talents: [
+      { name: 'Armeiro', focus: 'Armas', effect: '<p>Consertar armas custa 50% menos materiais.</p>' },
+      { name: 'Especialista em Eletrônica', focus: 'Tecnologia', effect: '<p>Recebe +2 em Tecnologia envolvendo aparelhos eletrônicos.</p>' },
+      { name: 'Mecânico de Campo', focus: 'Veículos', effect: '<p>Consegue reparar veículos utilizando sucata improvisada.</p>' },
+      { name: 'Improvisador', focus: 'Fabricação', effect: '<p>Pode fabricar equipamentos improvisados utilizando metade do tempo normal.</p>' },
+      { name: 'Engenheiro de Fortificações', focus: 'Bases', effect: '<p>Barricadas construídas por você possuem 25% mais Pontos de Vida.</p>' }
+    ]
+  },
+  {
+    title: 'Talentos Sociais', tag: 'Social', desc: 'Mantêm o grupo unido.',
+    talents: [
+      { name: 'Negociador', focus: 'Comércio', effect: '<p>Recebe +2 em Diplomacia durante trocas comerciais.</p>' },
+      { name: 'Inspirador', focus: 'Moral', effect: '<p>Durante descansos curtos.</p><p>Aliados recuperam +1 Moral.</p>' },
+      { name: 'Presença Ameaçadora', focus: 'Intimidação', effect: '<p>Recebe +2 em Intimidação.</p>' },
+      { name: 'Líder Nato', focus: 'Suporte', effect: '<p>Aliados em alcance curto recebem +1 em testes contra medo.</p>' },
+      { name: 'Bom Ouvinte', focus: 'Intuição', effect: '<p>Recebe +2 em Intuição.</p>' }
+    ]
+  },
+  {
+    title: 'Talentos Mentais', tag: 'Mental', desc: 'Conhecimento e percepção.',
+    talents: [
+      { name: 'Observador', focus: 'Percepção', effect: '<p>Recebe +2 em Percepção.</p>' },
+      { name: 'Memória Fotográfica', focus: 'Conhecimento', effect: '<p>Recebe +2 em Conhecimento.</p><p>Sempre pode recordar informações vistas anteriormente, desde que o Mestre considere plausível.</p>' },
+      { name: 'Investigador', focus: 'Busca', effect: '<p>Recebe +2 em Investigação.</p><p>Além disso, reduz pela metade o tempo necessário para procurar pistas ou vasculhar um ambiente.</p>' },
+      { name: 'Sangue Frio', focus: 'Resistência mental', effect: '<p>Recebe +5 em testes de Vontade contra medo, pânico e pressão psicológica.</p>' },
+      { name: 'Estrategista', focus: 'Planejamento', effect: '<p>Recebe +2 em Tática.</p><p>Uma vez por cena, pode conceder +1 na Iniciativa de todos os aliados que possam ouvi-lo antes do início de um combate.</p>' }
+    ]
+  }
+];
+
+setTimeout(() => {
+  const talentosSection = document.getElementById('talentos');
+  if (talentosSection) {
+    let tableRows = '';
+    let detailsCards = '';
+
+    talentosData.forEach(cat => {
+      cat.talents.forEach(t => {
+        tableRows += `
+          <div class="tt-row">
+            <div class="tt-col"><strong>${cat.tag}</strong></div>
+            <div class="tt-col"><strong>${t.name}</strong></div>
+            <div class="tt-col tt-col-muted">${t.focus}</div>
+          </div>
+        `;
+      });
+
+      let talentsListHTML = cat.talents.map(t => `
+        <div class="talent-item">
+          <strong>${t.name}</strong>
+          <div class="talent-effect">${t.effect}</div>
+        </div>
+      `).join('');
+
+      detailsCards += `
+        <div class="talent-category-card">
+          <h4>${cat.title}</h4>
+          <p class="talent-cat-desc">${cat.desc}</p>
+          <div class="talent-list">${talentsListHTML}</div>
+        </div>
+      `;
+    });
+
+    talentosSection.innerHTML = `
+      <h3>Talentos</h3>
+      <p>Em um mundo onde cada decisão pode significar a diferença entre viver e morrer, sobreviver depende muito mais do que apenas força ou coragem. Os Talentos representam habilidades e técnicas que tornam cada sobrevivente único. Enquanto a Classe define o que você faz e a Origem conta quem você era, os Talentos mostram como você enfrenta o apocalipse. Escolha um Talento no 1º nível e receba novos nos níveis 4, 8, 12, 16 e 20.</p>
+      
+      <h4>Resumo de Talentos</h4>
+      <div class="talents-table">
+        <div class="tt-header">
+          <div class="tt-col">Categoria</div>
+          <div class="tt-col">Talento</div>
+          <div class="tt-col">Foco</div>
+        </div>
+        ${tableRows}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">DESCRIÇÃO DOS TALENTOS</p>
+          <p>Explore as descrições e bônus específicos de cada talento.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleTalentsBtn" type="button" aria-expanded="false">Exibir talentos</button>
+      </div>
+
+      <div id="talentsDetailsWrapper" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${detailsCards}
+      </div>
+    `;
+
+    const toggleBtn = document.getElementById('toggleTalentsBtn');
+    const detailsWrapper = document.getElementById('talentsDetailsWrapper');
+    if(toggleBtn && detailsWrapper) {
+      const setTalentsVisibility = collapsed => {
+        detailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleBtn.textContent = collapsed ? 'Exibir talentos' : 'Ocultar talentos';
+        localStorage.setItem('t20-talentos-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const stored = localStorage.getItem('t20-talentos-desc');
+      const isCollapsed = stored ? stored === 'collapsed' : true; 
+      setTalentsVisibility(isCollapsed);
+      
+      toggleBtn.addEventListener('click', () => {
+        setTalentsVisibility(detailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 250);
