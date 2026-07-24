@@ -149,7 +149,7 @@ const trackerDetails = `
   <h5>Equipamento inicial</h5>
   <div class="choice-grid"><div><strong>Kit do Explorador</strong><p>Facão, rifle de caça, 20 munições, binóculo, mochila grande, corda de 20 m, cantil e kit de sobrevivência.</p></div><div><strong>Kit do Guarda Florestal</strong><p>Espingarda, 16 cartuchos, machado de mão, bússola, mapa, mochila média e kit de primeiros socorros.</p></div></div>
   <h5>Evolução</h5>
-  <ul class="progression"><li><b>Níveis 1–5:</b> rastreia, encontra recursos e orienta o grupo.</li><li><b>Níveis 6–10:</b> evita perigos, detecta armadilhas e conduz expedições seguras.</li><li><b>Níveis 11–15:</b> domina grandes áreas e identifica ameaças antes de qualquer confronto.</li><li><b>Níveis 16–20:</b> guia comunidades por territórios hostis, prevê hordas e encontra recursos onde ninguém mais conseguiria.</li></ul>`;
+  <ul class="progression"><li><b>Níveis 1–5:</b> rastreia, encontra recursos e orienta o grupo.</li><li><b>Níveis 6–10:</b> evita perigos, detecta armadilhas e conduz expedições seguras.</li><li><b>Níveis 11–15:</b> domina grandes áreas e identifica ameaças antes de qualquer confronto.</li><li><b>Níveis 16–20:</b> guia communities por territórios hostis, prevê hordas e encontra recursos onde ninguém mais conseguiria.</li></ul>`;
 
 const mercenaryDetails = `
   <p class="class-tagline">“No fim do mundo, ninguém pergunta quem você era. Só importa se consegue manter os outros vivos — ou eliminar quem ameaça o grupo.”</p>
@@ -211,7 +211,7 @@ const leaderDetails = `
     <div><dt>Planejamento Estratégico</dt><dd>Após um descanso longo, escolha uma estratégia para o dia: <b>Ofensiva</b> (+1 em ataques), <b>Defensiva</b> (+1 Defesa), <b>Exploração</b> (+2 em Sobrevivência e Percepção) ou <b>Produção</b> (+2 em Ofício). Ela só muda após novo descanso longo.</dd></div>
   </dl>
   <h5>Equipamento inicial</h5><div class="choice-grid"><div><strong>Kit Coordenador</strong><p>Pistola, 24 munições, rádio comunicador, binóculo, mapa, mochila média e kit de primeiros socorros.</p></div><div><strong>Kit Comunitário</strong><p>Revólver, 18 munições, apito, caderno de anotações, lanterna, mochila pequena e kit de ferramentas leves.</p></div></div>
-  <h5>Evolução</h5><ul class="progression"><li><b>Níveis 1–5:</b> inspira aliados e coordena pequenas equipes.</li><li><b>Níveis 6–10:</b> organiza expedições, fortalece a Moral e melhora o desempenho do grupo.</li><li><b>Níveis 11–15:</b> muda o rumo de combates e negociações.</li><li><b>Níveis 16–20:</b> lidera comunidades inteiras e transforma sobreviventes em uma força organizada.</li></ul>`;
+  <h5>Evolução</h5><ul class="progression"><li><b>Níveis 1–5:</b> inspira aliados e coordena pequenas equipes.</li><li><b>Níveis 6–10:</b> organiza expedições, fortalece a Moral e melhora o desempenho do grupo.</li><li><b>Níveis 11–15:</b> muda o rumo de combates e negociações.</li><li><b>Níveis 16–20:</b> lidera communities inteiras e transforma sobreviventes em uma força organizada.</li></ul>`;
 
 const medicDetails = `
   <p class="class-tagline">“Nem toda batalha é vencida com balas. Algumas são vencidas por quem consegue manter um coração batendo por mais alguns minutos.”</p>
@@ -252,7 +252,7 @@ const influencerDetails = `
   <h5>Pontos de Adrenalina (PA)</h5><p>Seus PA representam presença de espírito, eloquência, criatividade e autocontrole.</p>
   <h5>Papel no grupo</h5><p>O Influenciador negocia recursos, convence NPCs, recruta sobreviventes, resolve conflitos, melhora a Moral, obtém informações e incentiva aliados. É a classe social mais poderosa do sistema.</p>
   <h5>Proficiências</h5><p>Você é proficiente com pistolas, revólveres, facas, bastões e armas improvisadas leves. Seu treinamento prioriza autoproteção, não combate direto.</p>
-  <div class="choice-grid"><div><strong>Atributo principal</strong><p><b>Carisma.</b> Afeta Diplomacia, Enganação, Intimidação, Atuação, recrutamento, Moral e inspiração.</p></div><div><strong>Atributo secundário</strong><p><b>Inteligência.</b> Afeta leitura de pessoas, estratégia social, comunidades e negociações.</p></div></div>
+  <div class="choice-grid"><div><strong>Atributo principal</strong><p><b>Carisma.</b> Afeta Diplomacia, Enganação, Intimidação, Atuação, recrutamento, Moral e inspiração.</p></div><div><strong>Atributo secundário</strong><p><b>Inteligência.</b> Afeta leitura de pessoas, estratégia social, communities e negociações.</p></div></div>
   <h5>Perícias</h5><p>Você recebe treinamento em <b>Diplomacia, Enganação, Intuição</b> e <b>Atuação</b>. Escolha mais duas perícias.</p>
   <h5>Habilidades de classe</h5><dl class="ability-list">
     <div><dt>Discurso Motivador</dt><dd>Gaste 1 PA para inspirar um aliado em alcance curto. Escolha +2 em ataques, resistência, uma perícia ou Defesa até o início de seu próximo turno. O bônus dura uma rodada e um personagem só pode receber um Discurso por rodada.</dd></div>
@@ -510,7 +510,7 @@ const attributesCatalog = [
   { icon: '🏃', name: 'Destreza', quote: 'Velocidade e precisão salvam mais vidas do que força descontrolada.', desc: '<p>Destreza representa coordenação motora, agilidade, reflexos e precisão dos movimentos. Ela influencia a capacidade do personagem de mirar com armas de fogo, mover-se silenciosamente, escapar de perigos e executar ações delicadas.</p><p>Personagens com alta Destreza costumam agir antes dos demais, acertar disparos com maior facilidade e evitar ataques.</p>', uses: ['Ataques à distância.', 'Esquiva.', 'Furtividade.', 'Reflexos.', 'Equilíbrio.', 'Arrombamentos delicados.', 'Escalada ágil.', 'Condução precisa de veículos.'] },
   { icon: '❤️', name: 'Constituição', quote: 'Sobreviver é resistir quando todos os outros desistem.', desc: '<p>Constituição representa a resistência física e mental do personagem diante das adversidades. Ela determina seus Pontos de Vida, resistência ao cansaço, doenças, fome, sede e infecções.</p><p>Em um cenário de apocalipse, onde recursos são escassos e o ambiente é tão perigoso quanto os inimigos, Constituição é um dos atributos mais importantes para garantir a sobrevivência a longo prazo.</p>', uses: ['Resistir à fome.', 'Resistir à sede.', 'Suportar noites sem dormir.', 'Enfrentar doenças.', 'Resistir à infecção.', 'Resistir ao frio ou calor extremos.', 'Recuperação durante descansos.', 'Testes de resistência física.'] },
   { icon: '🧠', name: 'Inteligência', quote: 'Conhecimento transforma problemas em soluções.', desc: '<p>Inteligência representa raciocínio lógico, memória, capacidade de aprendizado e conhecimento técnico. Ela é utilizada para operar equipamentos, interpretar informações, fabricar objetos, reparar máquinas, realizar procedimentos médicos e compreender o funcionamento do mundo.</p><p>Além do conhecimento adquirido antes do apocalipse, Inteligência também representa a capacidade de improvisar soluções utilizando os recursos disponíveis.</p>', uses: ['Medicina.', 'Tecnologia.', 'Investigação.', 'Ciências.', 'Fabricação.', 'Reparos.', 'Montagem de armadilhas.', 'Planejamento.', 'Decifrar documentos ou mapas.'] },
-  { icon: '🗣', name: 'Carisma', quote: 'No fim do mundo, convencer alguém pode valer mais do que uma arma carregada.', desc: '<p>Carisma representa personalidade, confiança, liderança, determinação e influência sobre outras pessoas. Mais do que simplesmente falar bem, esse atributo mede a capacidade do personagem de inspirar aliados, negociar recursos, intimidar inimigos e manter a calma em situações críticas.</p><p>Em um mundo onde comunidades dependem da cooperação para sobreviver, o Carisma pode decidir o destino de um grupo inteiro.</p>', uses: ['Diplomacia.', 'Enganação.', 'Intimidação.', 'Liderança.', 'Negociações.', 'Recrutamento de sobreviventes.', 'Discursos motivacionais.', 'Resistência ao desespero e à pressão social.'] }
+  { icon: '🗣', name: 'Carisma', quote: 'No fim do mundo, convencer alguém pode valer mais do que uma arma carregada.', desc: '<p>Carisma representa personalidade, confiança, liderança, determinação e influência sobre outras pessoas. Mais do que simplesmente falar bem, esse atributo mede a capacidade do personagem de inspirar aliados, negociar recursos, intimidar inimigos e manter a calma em situações críticas.</p><p>Em um mundo onde communities dependem da cooperação para sobreviver, o Carisma pode decidir o destino de um grupo inteiro.</p>', uses: ['Diplomacia.', 'Enganação.', 'Intimidação.', 'Liderança.', 'Negociações.', 'Recrutamento de sobreviventes.', 'Discursos motivacionais.', 'Resistência ao desespero e à pressão social.'] }
 ];
 
 setTimeout(() => {
@@ -836,3 +836,934 @@ setTimeout(() => {
     }
   }
 }, 250);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: FOME
+// ==========================================
+const fomeLevels = [
+  { level: 0, status: 'Alimentado', effect: '<p>Você está bem alimentado. Seu corpo possui energia suficiente para enfrentar os desafios do dia.</p><strong>Efeitos:</strong> Nenhuma penalidade.' },
+  { level: 1, status: 'Com Fome', effect: '<p>Você sente fome, mas ainda consegue trabalhar normalmente.</p><strong>Efeitos:</strong> Nenhuma penalidade mecânica.<p><em>Este estágio serve apenas como um alerta.</em></p>' },
+  { level: 2, status: 'Faminto', effect: '<p>A falta de alimento começa a afetar seu rendimento.</p><strong>Efeitos:</strong><ul><li>–1 em testes baseados em Força.</li><li>–1 em testes baseados em Constituição.</li></ul>' },
+  { level: 3, status: 'Desnutrido', effect: '<p>Seu corpo começa a economizar energia. Você se movimenta mais devagar e qualquer esforço se torna cansativo.</p><strong>Efeitos:</strong><ul><li>–2 em testes de Força.</li><li>–2 em testes de Constituição.</li><li>Deslocamento reduzido em 3 metros.</li><li>Recupera apenas metade dos PV durante descansos.</li></ul>' },
+  { level: 4, status: 'Inanição', effect: '<p>Seu organismo entrou em estado crítico. Você sente tonturas constantes e dificuldade para permanecer em pé.</p><strong>Efeitos:</strong><ul><li>–2 em todos os testes físicos.</li><li>–1 em Iniciativa.</li><li>Recupera apenas metade da Adrenalina.</li><li>Não pode realizar corridas prolongadas.</li></ul>' },
+  { level: 5, status: 'Colapso', effect: '<p>Seu corpo não consegue mais continuar. Você está à beira da morte por desnutrição.</p><strong>Efeitos:</strong><ul><li>Sofre 1d6 de dano verdadeiro a cada 24 horas.</li><li>Não recupera PV durante descansos.</li><li>Não recupera Adrenalina.</li><li>Recebe Desvantagem (ou –5, conforme a mecânica do sistema) em todos os testes físicos.</li><li>Enquanto permanecer nesse estágio, qualquer esforço extremo pode fazer o personagem desmaiar, a critério do Mestre.</li></ul>' }
+];
+
+setTimeout(() => {
+  const fomeSection = document.getElementById('fome');
+  if (fomeSection) {
+    fomeSection.innerHTML = `
+      <h3>Fome</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“Você consegue lutar por alguns minutos sem comida. Sobreviver por semanas é outra história.”</p>
+      <p>A Fome representa o desgaste causado pela falta de alimentação adequada. Diferente dos ferimentos, seus efeitos aparecem de forma gradual, reduzindo a força física, a concentração e a capacidade de recuperação do personagem.</p>
+      <p>Durante o apocalipse, encontrar alimento é tão importante quanto encontrar munição. Ignorar a Fome por muito tempo pode tornar até as tarefas mais simples um grande desafio.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Fome, variando entre 0 e 5. Quanto maior o nível, maiores serão as penalidades sofridas.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${fomeLevels.map(f => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${f.level}</strong></div>
+            <div class="st-desc"><strong>${f.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DA FOME</p>
+          <p>Confira os efeitos práticos de cada nível de desnutrição.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleFomeBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="fomeDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${fomeLevels.map(f => `
+          <div class="sd-card">
+            <h5>Nível ${f.level} — ${f.status}</h5>
+            <div style="font-size: 0.95em;">${f.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Fome Aumenta</h3>
+      <p>Todo personagem precisa consumir <strong>1 Ração por dia</strong>. Ao final de cada período de 24 horas, caso não tenha consumido alimento suficiente:</p>
+      <p style="background: rgba(255,0,0,0.08); padding: 12px; border-left: 4px solid #d32f2f; border-radius: 4px;"><strong>A Fome aumenta em 1 estágio.</strong></p>
+
+      <p style="margin-top: 20px;">Algumas situações aceleram esse processo:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 2fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Efeito</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Caminhada intensa o dia inteiro</strong></div><div class="tt-col tt-col-muted">+1 teste de desgaste (o mestre pode exigir uma refeição extra ou um teste de Constituição para evitar avanço da Fome)</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Trabalho pesado</strong></div><div class="tt-col tt-col-muted">+1 teste de desgaste (o mestre pode exigir uma refeição extra ou um teste de Constituição para evitar avanço da Fome)</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Frio extremo</strong></div><div class="tt-col tt-col-muted">+1 teste de desgaste (o mestre pode exigir uma refeição extra ou um teste de Constituição para evitar avanço da Fome)</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Longas corridas</strong></div><div class="tt-col tt-col-muted">+1 teste de desgaste (o mestre pode exigir uma refeição extra ou um teste de Constituição para evitar avanço da Fome)</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Ferimentos graves</strong></div><div class="tt-col tt-col-muted">+1 teste de desgaste (o mestre pode exigir uma refeição extra ou um teste de Constituição para evitar avanço da Fome)</div></div>
+      </div>
+      <p><small><em>Essas situações não aumentam automaticamente a Fome, mas tornam o desgaste mais severo e justificam exigências adicionais do Mestre.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como Reduzir a Fome</h3>
+      <p>A comida possui uma classificação nutricional:</p>
+      <div class="talents-table" style="margin-bottom: 20px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 1fr;">
+          <div class="tt-col">Alimento</div>
+          <div class="tt-col">Recuperação</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Lanche pequeno</strong></div><div class="tt-col tt-col-muted">reduz 1 estágio apenas se a Fome estiver em 1 ou 2</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Refeição simples</strong></div><div class="tt-col tt-col-muted">reduz 1 estágio</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Refeição completa</strong></div><div class="tt-col tt-col-muted">reduz 2 estágios</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Banquete ou refeição excepcional</strong></div><div class="tt-col tt-col-muted">reduz até 3 estágios (máximo uma vez por dia)</div></div>
+      </div>
+      <p><strong>Nota:</strong> Nunca é possível reduzir a Fome abaixo do estágio 0.</p>
+
+      <h4>Comer Não é Instantâneo</h4>
+      <p>Durante um combate, consumir alimento exige <strong>1 Ação Completa</strong>. Normalmente isso não compensa.</p>
+
+      <h4>Qualidade da Comida</h4>
+      <p>Nem toda comida é segura.</p>
+      <div class="talents-table" style="margin-bottom: 16px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 1fr;">
+          <div class="tt-col">Estado</div>
+          <div class="tt-col">Exemplo</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Fresca</strong></div><div class="tt-col tt-col-muted">Ideal</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Conservada</strong></div><div class="tt-col tt-col-muted">Enlatados</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Improvisada</strong></div><div class="tt-col tt-col-muted">Caça</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Estragada</strong></div><div class="tt-col tt-col-muted">Alimento vencido</div></div>
+      </div>
+      <p>Comida estragada exige um teste de Fortitude. Em caso de <strong>Falha</strong>, o personagem pode sofrer intoxicação ou doença.</p>
+
+      <div class="callout info" style="margin-top: 24px;">
+        <strong>O Papel do Cozinheiro</strong>
+        <p>Personagens com o Talento <em>Cozinheiro</em> conseguem aproveitar melhor os ingredientes disponíveis. Uma refeição preparada por um cozinheiro pode:</p>
+        <ul style="margin-top: 8px;">
+          <li>Alimentar mais pessoas;</li>
+          <li>Reduzir um estágio adicional de Fome;</li>
+          <li>Aumentar a Moral do grupo, conforme as regras da campanha.</li>
+        </ul>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Fome, Infecção e Moral</h3>
+      <p>O enfraquecimento físico e mental tem consequências diretas em outros aspectos da sobrevivência:</p>
+      
+      <h4>Fome e Moral</h4>
+      <p>A Fome afeta diretamente o estado emocional. Sempre que um personagem atingir os níveis <strong>4 (Inanição)</strong> ou <strong>5 (Colapso)</strong>, ele <strong>perde 1 ponto de Moral por dia</strong>. Isso representa irritação, desânimo e perda de esperança.</p>
+
+      <h4>Fome e Infecção</h4>
+      <p>Um corpo enfraquecido reage pior às doenças. Enquanto estiver nos níveis <strong>4 ou 5</strong>, o personagem sofre <strong>–2 em testes de Fortitude</strong> contra doenças e Infecção, representando um sistema imunológico debilitado.</p>
+
+      <h4>Recuperação</h4>
+      <p>Mesmo após comer, o corpo demora para voltar ao normal. Se o personagem atingir os níveis 4 ou 5, recuperar-se completamente exige <strong>pelo menos 24 horas de descanso</strong> com alimentação adequada e hidratação suficiente.</p>
+    `;
+
+    const toggleFomeBtn = document.getElementById('toggleFomeBtn');
+    const fomeDetailsWrapper = document.getElementById('fomeDetailsWrapper');
+    if (toggleFomeBtn && fomeDetailsWrapper) {
+      const setFomeVisibility = collapsed => {
+        fomeDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleFomeBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleFomeBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-fome-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-fome-desc') === 'collapsed';
+      setFomeVisibility(isCollapsed);
+      
+      toggleFomeBtn.addEventListener('click', () => {
+        setFomeVisibility(fomeDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 300);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: SEDE
+// ==========================================
+const sedeLevels = [
+  { level: 0, status: 'Hidratado', effect: '<p>Você possui água suficiente para manter o corpo funcionando normalmente.</p><strong>Efeitos:</strong> Nenhuma penalidade.' },
+  { level: 1, status: 'Com Sede', effect: '<p>Sua garganta está seca e você começa a sentir desconforto.</p><strong>Efeitos:</strong> Nenhuma penalidade mecânica.<p><em>Este estágio serve apenas como um aviso.</em></p>' },
+  { level: 2, status: 'Desidratado', effect: '<p>A falta de líquidos começa a comprometer seu desempenho.</p><strong>Efeitos:</strong><ul><li>–1 em testes baseados em Constituição.</li><li>–1 em testes de Fortitude.</li></ul>' },
+  { level: 3, status: 'Desidratação Severa', effect: '<p>Seu corpo perde a capacidade de regular a temperatura corretamente. Você sente tontura, fadiga e dificuldade para manter o ritmo.</p><strong>Efeitos:</strong><ul><li>–2 em Constituição.</li><li>–2 em Fortitude.</li><li>Deslocamento reduzido em 3 metros.</li><li>Recupera apenas metade da Adrenalina durante descansos.</li></ul>' },
+  { level: 4, status: 'Estado Crítico', effect: '<p>Seu organismo começa a entrar em falência. Você sente câimbras, visão embaçada e dificuldade para permanecer consciente.</p><strong>Efeitos:</strong><ul><li>–2 em todos os testes físicos.</li><li>–2 em Iniciativa.</li><li>Não recupera Adrenalina.</li><li>Recupera apenas metade dos Pontos de Vida.</li><li>Sempre que terminar um combate ou realizar uma atividade exaustiva, faça um teste de Fortitude. Em caso de falha, avance imediatamente para o estágio 5.</li></ul>' },
+  { level: 5, status: 'Colapso', effect: '<p>Seu corpo não consegue mais manter as funções vitais. Você está à beira da morte por desidratação.</p><strong>Efeitos:</strong><ul><li>Sofre 1d6 de dano verdadeiro a cada 12 horas.</li><li>Não recupera Pontos de Vida.</li><li>Não recupera Adrenalina.</li><li>Recebe –5 em todos os testes físicos.</li><li>Sempre que iniciar um combate, faça um teste de Fortitude. Em caso de falha, você inicia a cena <strong>Caído</strong>, incapaz de agir até receber auxílio ou água.</li></ul>' }
+];
+
+setTimeout(() => {
+  const sedeSection = document.getElementById('sede');
+  if (sedeSection) {
+    sedeSection.innerHTML = `
+      <h3>Sede</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“Sem comida você enfraquece. Sem água você para.”</p>
+      <p>A Sede representa a desidratação do organismo causada pela falta de água potável. Durante o apocalipse, encontrar uma fonte segura de água pode ser tão importante quanto encontrar munição ou um abrigo.</p>
+      <p>Rios, lagos e reservatórios nem sempre são seguros. Beber água contaminada pode matar tão facilmente quanto a própria desidratação.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Sede, variando entre 0 e 5. Quanto maior o nível, mais debilitado seu corpo se torna.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${sedeLevels.map(s => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${s.level}</strong></div>
+            <div class="st-desc"><strong>${s.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DA SEDE</p>
+          <p>Confira os efeitos práticos de cada nível de desidratação.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleSedeBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="sedeDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${sedeLevels.map(s => `
+          <div class="sd-card">
+            <h5>Nível ${s.level} — ${s.status}</h5>
+            <div style="font-size: 0.95em;">${s.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Sede Aumenta</h3>
+      <p>Todo personagem deve consumir <strong>2 litros de água potável por dia</strong> para permanecer hidratado. Ao final de cada período de 24 horas, caso não tenha ingerido água suficiente:</p>
+      <p style="background: rgba(255,0,0,0.08); padding: 12px; border-left: 4px solid #d32f2f; border-radius: 4px;"><strong>A Sede aumenta em 1 estágio.</strong></p>
+
+      <p style="margin-top: 20px;">Algumas situações aceleram esse processo:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 2fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Efeito</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Calor intenso</strong></div><div class="tt-col tt-col-muted">Avança 1 estágio adicional.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Corridas prolongadas</strong></div><div class="tt-col tt-col-muted">Avança 1 estágio adicional.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Combates longos</strong></div><div class="tt-col tt-col-muted">O Mestre pode exigir consumo extra de água.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Trabalho pesado</strong></div><div class="tt-col tt-col-muted">Avança 1 estágio adicional.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Uso de roupas pesadas ou equipamentos de proteção</strong></div><div class="tt-col tt-col-muted">Pode aumentar o consumo diário de água.</div></div>
+      </div>
+      <p><small><em>Esses efeitos são cumulativos, a critério do Mestre.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como Reduzir a Sede</h3>
+      <p>A recuperação depende da quantidade e da qualidade da água consumida.</p>
+      <div class="talents-table" style="margin-bottom: 20px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 1fr;">
+          <div class="tt-col">Água consumida</div>
+          <div class="tt-col">Recuperação</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Pequena quantidade</strong></div><div class="tt-col tt-col-muted">Reduz 1 estágio apenas se estiver nos níveis 1 ou 2.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>1 litro de água potável</strong></div><div class="tt-col tt-col-muted">Reduz 1 estágio.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>2 litros de água potável</strong></div><div class="tt-col tt-col-muted">Reduz 2 estágios.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Descanso completo com hidratação adequada</strong></div><div class="tt-col tt-col-muted">Remove até 3 estágios (máximo uma vez por dia).</div></div>
+      </div>
+      <p><strong>Nota:</strong> Nunca é possível reduzir a Sede abaixo do estágio 0.</p>
+
+      <div class="callout info" style="margin-top: 24px;">
+        <strong>⚠️ Água Contaminada</strong>
+        <p>Nem toda água encontrada durante o apocalipse é segura. Água retirada de rios, lagos, caixas d'água abandonadas ou poças pode estar contaminada por bactérias, produtos químicos ou matéria orgânica.</p>
+        <p style="margin-top: 8px;">Ao beber água contaminada, o personagem deve realizar um <strong>teste de Fortitude</strong>:</p>
+        <ul style="margin-top: 6px;">
+          <li><strong>Sucesso:</strong> Não sofre efeitos imediatos.</li>
+          <li><strong>Falha:</strong> Recupera normalmente a Sede, mas contrai uma Infecção ou outra doença, conforme decisão do Mestre.</li>
+        </ul>
+        <p style="margin-top: 8px;"><em>Ferver ou purificar a água utilizando filtros ou pastilhas químicas elimina esse risco.</em></p>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Desidratação, Tensão e Moral</h3>
+      <p>A falta de água afeta o corpo de forma muito mais agressiva do que a fome, gerando complicações severas no psicológico e na imunidade:</p>
+      
+      <h4>Sede e Moral</h4>
+      <p>A desidratação prolongada aumenta a irritação, reduz a concentração e afeta o humor. Sempre que um personagem atingir os níveis <strong>4 ou 5</strong>, ele <strong>perde 1 ponto de Moral</strong> ao final do dia caso não consiga reduzir seu nível de Sede.</p>
+
+      <h4>Sede e Tensão</h4>
+      <p>Enquanto estiver nos níveis <strong>3 ou superiores</strong>, o personagem sofre <strong>+1 Tensão</strong> sempre que entrar em combate, refletindo o estresse físico e mental causado pela desidratação severa.</p>
+
+      <h4>Sede e Infecção</h4>
+      <p>Um organismo desidratado responde pior às doenças. Enquanto estiver nos níveis <strong>4 ou 5</strong>, o personagem sofre <strong>–2 em testes de Fortitude</strong> contra Infecções e outras doenças, tornando-se muito mais vulnerável a complicações.</p>
+
+      <h4>Recuperação</h4>
+      <p>Mesmo após beber água, o organismo precisa de tempo para se recuperar. Se um personagem atingir os níveis <strong>4 ou 5</strong>, ele só recupera totalmente sua capacidade física após <strong>24 horas de descanso</strong>, hidratação adequada e alimentação suficiente.</p>
+    `;
+
+    const toggleSedeBtn = document.getElementById('toggleSedeBtn');
+    const sedeDetailsWrapper = document.getElementById('sedeDetailsWrapper');
+    if (toggleSedeBtn && sedeDetailsWrapper) {
+      const setSedeVisibility = collapsed => {
+        sedeDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleSedeBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleSedeBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-sede-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-sede-desc') === 'collapsed';
+      setSedeVisibility(isCollapsed);
+      
+      toggleSedeBtn.addEventListener('click', () => {
+        setSedeVisibility(sedeDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 350);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: SONO
+// ==========================================
+const sonoLevels = [
+  { level: 0, status: 'Bem Descansado', effect: '<p>Você dormiu o suficiente e seu corpo está recuperado.</p><strong>Efeitos:</strong> Nenhuma penalidade.' },
+  { level: 1, status: 'Sonolento', effect: '<p>Você boceja com frequência e sente um leve cansaço.</p><strong>Efeitos:</strong> Nenhuma penalidade mecânica.<p><em>Este estágio serve apenas como um alerta.</em></p>' },
+  { level: 2, status: 'Cansado', effect: '<p>A fadiga começa a comprometer sua atenção.</p><strong>Efeitos:</strong><ul><li>–1 em testes de Percepção.</li><li>–1 em testes de Iniciativa.</li></ul>' },
+  { level: 3, status: 'Exausto', effect: '<p>Seu corpo responde mais lentamente e sua mente perde o foco.</p><strong>Efeitos:</strong><ul><li>–2 em Percepção.</li><li>–2 em Iniciativa.</li><li>–1 em testes de Inteligência.</li><li>Recupera apenas metade da Adrenalina durante descansos.</li></ul>' },
+  { level: 4, status: 'Exaustão Severa', effect: '<p>Você luta para manter os olhos abertos. Seu tempo de reação diminui drasticamente.</p><strong>Efeitos:</strong><ul><li>–2 em todos os testes mentais.</li><li>–2 em Iniciativa.</li><li>Deslocamento reduzido em 3 metros.</li><li>Recupera apenas metade dos Pontos de Vida.</li><li>Não recupera toda a Adrenalina.</li><li>Sempre que terminar um combate ou realizar esforço intenso, faça um teste de Vontade. Em caso de falha, avance para o estágio 5.</li></ul>' },
+  { level: 5, status: 'Colapso', effect: '<p>Seu organismo não consegue mais permanecer acordado. O sono vence qualquer esforço.</p><strong>Efeitos:</strong><ul><li>–5 em todos os testes mentais.</li><li>Não recupera Pontos de Vida.</li><li>Não recupera Adrenalina.</li><li>Sempre que iniciar uma cena de combate, faça um teste de Vontade. Em caso de falha, você perde seu primeiro turno, representando um lapso de atenção ou um breve apagão.</li><li>Sempre que permanecer em um local seguro por alguns minutos, o Mestre pode exigir um novo teste de Vontade. Em caso de falha, o personagem adormece involuntariamente.</li></ul>' }
+];
+
+setTimeout(() => {
+  const sonoSection = document.getElementById('sono');
+  if (sonoSection) {
+    sonoSection.innerHTML = `
+      <h3>Sono</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“No apocalipse, dormir é um luxo. Dormir em segurança é um milagre.”</p>
+      <p>O Sono representa a necessidade de descanso físico e mental do personagem. Um sobrevivente cansado demora mais para reagir, comete erros simples e perde a capacidade de tomar boas decisões. Permanecer acordado por longos períodos pode ser tão perigoso quanto enfrentar uma horda de infectados.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Sono, variando entre 0 e 5. Quanto maior o nível, mais cansado ele está.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${sonoLevels.map(s => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${s.level}</strong></div>
+            <div class="st-desc"><strong>${s.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DO SONO</p>
+          <p>Confira os efeitos práticos da privação de sono e cansaço extremo.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleSonoBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="sonoDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${sonoLevels.map(s => `
+          <div class="sd-card">
+            <h5>Nível ${s.level} — ${s.status}</h5>
+            <div style="font-size: 0.95em;">${s.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como o Sono Aumenta</h3>
+      <p>Um personagem precisa dormir aproximadamente <strong>8 horas por dia</strong> para permanecer descansado. Ao final de cada período de 24 horas sem descanso adequado:</p>
+      <p style="background: rgba(255,0,0,0.08); padding: 12px; border-left: 4px solid #d32f2f; border-radius: 4px;"><strong>O Nível de Sono aumenta em 1 estágio.</strong></p>
+
+      <p style="margin-top: 20px;">Algumas situações tornam esse desgaste ainda maior:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 2fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Efeito</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Dormir menos de 4 horas</strong></div><div class="tt-col tt-col-muted">Avança 1 estágio adicional.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Permanecer de vigília durante toda a noite</strong></div><div class="tt-col tt-col-muted">Avança 1 estágio adicional.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Realizar marchas longas</strong></div><div class="tt-col tt-col-muted">O Mestre pode exigir um teste de Constituição para evitar aumento do Sono.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 2fr;"><div class="tt-col"><strong>Combates consecutivos sem descanso</strong></div><div class="tt-col tt-col-muted">Pode aumentar o desgaste, a critério do Mestre.</div></div>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Descanso</h3>
+      <p>Nem todo descanso possui a mesma qualidade.</p>
+      <div class="talents-table" style="margin-bottom: 20px;">
+        <div class="tt-header" style="grid-template-columns: 1fr 1fr;">
+          <div class="tt-col">Tipo de descanso</div>
+          <div class="tt-col">Recuperação</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Cochilo (1 a 2 horas)</strong></div><div class="tt-col tt-col-muted">Reduz 1 estágio (máximo até o estágio 2).</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Sono interrompido</strong></div><div class="tt-col tt-col-muted">Reduz 1 estágio.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Sono normal (8 horas)</strong></div><div class="tt-col tt-col-muted">Reduz 2 estágios.</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>Descanso confortável e seguro</strong></div><div class="tt-col tt-col-muted">Reduz até 3 estágios e recupera normalmente os demais recursos.</div></div>
+      </div>
+      <p><strong>Nota:</strong> Nunca é possível reduzir o Nível de Sono abaixo de 0.</p>
+
+      <div class="callout info" style="margin-top: 24px;">
+        <strong>⛺ Dormindo em Locais Inseguros</strong>
+        <p>Dormir em um prédio abandonado, dentro de um veículo ou ao relento nunca é totalmente seguro. Sempre que o grupo realizar um descanso em uma área insegura, o Mestre pode determinar uma ou mais das seguintes consequências:</p>
+        <ul style="margin-top: 8px;">
+          <li>Interrupção do descanso por ruídos ou ataques;</li>
+          <li>Recuperação reduzida;</li>
+          <li>Aumento da Tensão ao acordar;</li>
+          <li>Encontros aleatórios durante a noite.</li>
+        </ul>
+        <p style="margin-top: 8px;"><em>Isso incentiva os jogadores a procurar ou construir abrigos seguros.</em></p>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Cansaço, Tensão e Outros Fatores</h3>
+      <p>O cansaço mental e físico atinge o sobrevivente de várias formas ao mesmo tempo:</p>
+      
+      <h4>Sono e Moral</h4>
+      <p>O cansaço prolongado afeta o humor e a convivência. Enquanto permanecer nos níveis <strong>4 ou 5</strong>, o personagem <strong>perde 1 ponto de Moral</strong> ao final de cada dia caso não consiga descansar adequadamente.</p>
+
+      <h4>Sono e Tensão</h4>
+      <p>A privação de sono torna qualquer situação mais estressante. Enquanto estiver nos níveis <strong>3 ou superiores</strong>, o personagem recebe <strong>+1 Tensão</strong> sempre que entrar em combate ou enfrentar um evento de grande perigo.</p>
+
+      <h4>Sono e Infecção</h4>
+      <p>O descanso é essencial para a recuperação do organismo. Enquanto estiver nos níveis <strong>4 ou 5</strong>, o personagem sofre <strong>–2 em testes de Fortitude</strong> contra Infecções e doenças, representando a queda de sua resistência física.</p>
+
+      <h4>Sono e Recuperação</h4>
+      <p>O Sono interfere diretamente na recuperação dos demais recursos. Um personagem nos níveis 3 ou superiores recupera menos Pontos de Vida e Adrenalina durante descansos. Nos níveis 4 e 5, a recuperação é severamente comprometida, reforçando a importância de encontrar um abrigo seguro antes de continuar explorando.</p>
+
+      <div class="callout warning" style="margin-top: 24px; background: rgba(211, 47, 47, 0.1); border-color: #d32f2f;">
+        <strong style="color: #ff8a80;">⚠️ Privação Prolongada de Sono</strong>
+        <p>Se um personagem permanecer por três dias consecutivos no estágio <strong>5 — Colapso</strong>, ele passa a sofrer alucinações, lapsos de memória e desorientação, ficando sujeito a eventos narrativos determinados pelo Mestre, como confundir aliados com inimigos, interpretar sons inexistentes ou perder a noção do tempo.</p>
+      </div>
+    `;
+
+    const toggleSonoBtn = document.getElementById('toggleSonoBtn');
+    const sonoDetailsWrapper = document.getElementById('sonoDetailsWrapper');
+    if (toggleSonoBtn && sonoDetailsWrapper) {
+      const setSonoVisibility = collapsed => {
+        sonoDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleSonoBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleSonoBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-sono-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-sono-desc') === 'collapsed';
+      setSonoVisibility(isCollapsed);
+      
+      toggleSonoBtn.addEventListener('click', () => {
+        setSonoVisibility(sonoDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 400);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: INFECÇÃO
+// ==========================================
+const infeccaoLevels = [
+  { level: 0, status: 'Saudável', effect: '<p>Você não apresenta sinais de infecção.</p><strong>Efeitos:</strong> Nenhuma penalidade.' },
+  { level: 1, status: 'Contaminado', effect: '<p>Você foi exposto ao agente infeccioso, mas seu organismo ainda luta contra ele. Pode representar uma mordida superficial, um corte contaminado ou contato com sangue infectado.</p><strong>Efeitos:</strong> Nenhuma penalidade imediata.<p>Ao final de cada dia, faça um teste de Fortitude. <strong>Sucesso:</strong> permanece no estágio atual. <strong>Falha:</strong> avança para o estágio 2.</p>' },
+  { level: 2, status: 'Infectado', effect: '<p>Os primeiros sintomas aparecem. Febre, dores musculares e fadiga começam a surgir.</p><strong>Efeitos:</strong><ul><li>–1 em Constituição.</li><li>–1 em Fortitude.</li><li>Recupera apenas metade dos Pontos de Vida.</li></ul><p>Ao final de cada dia, realize um teste de Fortitude. <strong>Sucesso:</strong> permanece no estágio atual. <strong>Falha:</strong> avança para o estágio 3.</p>' },
+  { level: 3, status: 'Infecção Grave', effect: '<p>Seu corpo trava uma batalha intensa contra a doença. A febre aumenta, a fraqueza se torna evidente e cada esforço exige muito mais energia.</p><strong>Efeitos:</strong><ul><li>–2 em Constituição.</li><li>–2 em Fortitude.</li><li>Deslocamento reduzido em 3 metros.</li><li>Recupera apenas metade da Adrenalina.</li><li>Não pode realizar atividades extenuantes sem autorização do Mestre.</li></ul><p>Ao final de cada dia, faça um teste de Fortitude com desvantagem (ou –5, conforme a mecânica do sistema). <strong>Falha:</strong> Avança para o estágio 4.</p>' },
+  { level: 4, status: 'Estado Crítico', effect: '<p>Seu organismo está perdendo a batalha. Você apresenta febre alta, tremores e dificuldade para permanecer consciente.</p><strong>Efeitos:</strong><ul><li>–2 em todos os testes físicos.</li><li>Não recupera Adrenalina.</li><li>Recupera apenas metade dos Pontos de Vida.</li><li>Sofre 1d4 de dano verdadeiro ao final de cada dia.</li></ul><p>Ao final de cada dia, faça um teste de Fortitude. <strong>Falha:</strong> Avança para o estágio 5.</p>' },
+  { level: 5, status: 'Terminal', effect: '<p>A infecção domina completamente seu organismo. Sem tratamento imediato, sua morte é apenas uma questão de tempo.</p><strong>Efeitos:</strong><ul><li>Sofre 1d6 de dano verdadeiro a cada 12 horas.</li><li>Não recupera Pontos de Vida.</li><li>Não recupera Adrenalina.</li><li>Recebe –5 em todos os testes físicos e mentais.</li></ul><p>Quando seus Pontos de Vida chegarem a 0 devido à Infecção, o destino do personagem depende da natureza da doença na campanha. Em campanhas com vírus zumbi, ele pode morrer e reanimar como um infectado após o tempo determinado pelo Mestre.</p>' }
+];
+
+setTimeout(() => {
+  const infeccaoSection = document.getElementById('infeccao');
+  if (infeccaoSection) {
+    infeccaoSection.innerHTML = `
+      <h3>Infecção</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“Nem toda mordida mata na hora. Algumas apenas começam a contagem regressiva.”</p>
+      <p>A Infecção representa doenças causadas por mordidas, arranhões, ferimentos contaminados ou contato prolongado com fluidos infecciosos. Além do vírus responsável pelo apocalipse, ela também engloba infecções bacterianas, septicemias e outras complicações médicas decorrentes da falta de higiene e de tratamento adequado.</p>
+      <p>Ao contrário das demais mecânicas de sobrevivência, a Infecção não aumenta com o tempo, mas sim por exposição a fontes de contaminação e pela evolução da própria doença.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Infecção, variando entre 0 e 5.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${infeccaoLevels.map(i => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${i.level}</strong></div>
+            <div class="st-desc"><strong>${i.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DA INFECÇÃO</p>
+          <p>Confira a progressão dos sintomas e o impacto de cada estágio da doença.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleInfeccaoBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="infeccaoDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${infeccaoLevels.map(i => `
+          <div class="sd-card">
+            <h5>Nível ${i.level} — ${i.status}</h5>
+            <div style="font-size: 0.95em;">${i.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Infecção Acontece</h3>
+      <p>O Mestre determina quando há risco de contaminação. Situações comuns incluem:</p>
+      <div class="talents-table" style="margin-bottom: 20px;">
+        <div class="tt-header" style="grid-template-columns: 2fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Risco</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Mordida de infectado</strong></div><div class="tt-col" style="color: #ff1744; font-weight: bold;">Muito Alto</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Arranhão profundo</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">Alto</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Contato com sangue infectado em feridas abertas</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">Alto</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Corte com objeto contaminado</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">Médio</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Água contaminada</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">Médio</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Ferimentos sem tratamento por vários dias</strong></div><div class="tt-col" style="color: #81c784;">Baixo</div></div>
+      </div>
+      <p>Sempre que ocorrer uma exposição, o personagem realiza um teste de Fortitude. <strong>Sucesso:</strong> evita a contaminação. <strong>Falha:</strong> passa para o estágio 1 — Contaminado.</p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Tratando a Infecção</h3>
+      <p>Nem toda infecção evolui inevitavelmente. O tratamento adequado pode interromper ou até reverter seu avanço.</p>
+      <p>Algumas formas de tratamento incluem:</p>
+      <ul style="margin: 8px 0 16px 20px; color: var(--muted);">
+        <li>Limpeza imediata do ferimento e desinfecção;</li>
+        <li>Curativos esterilizados e antibióticos;</li>
+        <li>Atendimento médico ou cirurgias, em casos extremos.</li>
+      </ul>
+      <p>Cada tratamento concede bônus no próximo teste de Fortitude ou reduz um estágio da Infecção, conforme o recurso utilizado e a decisão do Mestre.</p>
+
+      <div class="callout info" style="margin-top: 20px;">
+        <strong>💊 Antibióticos</strong>
+        <p>Antibióticos não curam o vírus do apocalipse, mas combatem infecções bacterianas secundárias. Quando utilizados corretamente, concedem <strong>vantagem (ou +5)</strong> no próximo teste de Fortitude relacionado à Infecção. Cada dose só pode beneficiar um mesmo personagem uma vez por estágio.</p>
+      </div>
+
+      <div class="callout warning" style="margin-top: 16px; background: rgba(211, 47, 47, 0.1); border-color: #d32f2f;">
+        <strong style="color: #ff8a80;">🪓 Amputação</strong>
+        <p>Em campanhas que utilizam esse tipo de narrativa, uma amputação imediata pode impedir a progressão da infecção causada por uma mordida localizada em um membro. Para isso, a amputação deve ocorrer rapidamente após a exposição, conforme definido pelo Mestre. Esse procedimento exige equipamentos adequados, tratamento posterior e pode deixar sequelas permanentes.</p>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>A Infecção no Dia a Dia</h3>
+      <p>As reações do organismo a uma doença afetam drasticamente as outras necessidades vitais:</p>
+      
+      <h4>Infecção e Fome</h4>
+      <p>Enquanto estiver nos níveis <strong>3 ou superiores</strong>, toda recuperação de Fome é <strong>reduzida em 1 estágio</strong>, representando a perda de apetite causada pela doença.</p>
+
+      <h4>Infecção e Sede</h4>
+      <p>Personagens infectados precisam de mais líquidos. Enquanto estiver nos níveis <strong>3 ou superiores</strong>, o consumo diário de água <strong>dobra</strong>. Caso não seja atendido, a Sede aumenta normalmente e seus efeitos se acumulam.</p>
+
+      <h4>Infecção e Sono</h4>
+      <p>A febre dificulta um descanso reparador. Mesmo dormindo normalmente, personagens nos níveis <strong>4 e 5</strong> recuperam <strong>apenas 1 estágio de Sono</strong>, em vez da quantidade habitual.</p>
+
+      <h4>Infecção e Moral</h4>
+      <p>Ver um companheiro adoecer lentamente é devastador. Sempre que um membro do grupo atingir o <strong>estágio 5 — Terminal</strong>, todos os aliados que presenciarem a situação recebem <strong>–1 Moral</strong>, a critério do Mestre.</p>
+
+      <h4>Recuperação</h4>
+      <p>A Infecção raramente desaparece sozinha. Após tratamento adequado, repouso e sucesso em testes consecutivos de Fortitude, o personagem pode <strong>reduzir seu nível de Infecção em 1 estágio por dia</strong>, até retornar ao estágio 0 — Saudável.</p>
+      <p><small><em>Nota: Infecções causadas pelo vírus principal da campanha podem seguir regras próprias e, se desejado, serem incuráveis.</em></small></p>
+    `;
+
+    const toggleInfeccaoBtn = document.getElementById('toggleInfeccaoBtn');
+    const infeccaoDetailsWrapper = document.getElementById('infeccaoDetailsWrapper');
+    if (toggleInfeccaoBtn && infeccaoDetailsWrapper) {
+      const setInfeccaoVisibility = collapsed => {
+        infeccaoDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleInfeccaoBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleInfeccaoBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-infeccao-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-infeccao-desc') === 'collapsed';
+      setInfeccaoVisibility(isCollapsed);
+      
+      toggleInfeccaoBtn.addEventListener('click', () => {
+        setInfeccaoVisibility(infeccaoDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 450);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: MORAL
+// ==========================================
+const moralLevels = [
+  { level: 5, status: 'Inspirado', effect: '<p>Você acredita que ainda existe um futuro. Sua determinação inspira os demais sobreviventes.</p><strong>Benefícios:</strong><ul><li>+2 em testes de Vontade.</li><li>+1 em testes sociais.</li><li>Sempre que um aliado falhar em um teste de Moral, você pode permitir que ele repita esse teste uma vez por dia.</li></ul>' },
+  { level: 4, status: 'Confiante', effect: '<p>Você mantém o foco mesmo diante das dificuldades.</p><strong>Benefícios:</strong><ul><li>+1 em testes de Vontade.</li><li>+1 contra efeitos de medo.</li></ul>' },
+  { level: 3, status: 'Determinado', effect: '<p>Você continua lutando. Mesmo cansado e assustado, ainda acredita que vale a pena sobreviver.</p><strong>Efeitos:</strong> Nenhum modificador.<p><em>Este é o estado considerado normal para a maioria dos sobreviventes.</em></p>' },
+  { level: 2, status: 'Abalado', effect: '<p>As perdas começam a pesar. Você questiona se tudo isso ainda faz sentido.</p><strong>Penalidades:</strong><ul><li>–1 em testes de Vontade.</li><li>–1 em testes sociais de liderança ou persuasão.</li></ul>' },
+  { level: 1, status: 'Desesperançoso', effect: '<p>Você perdeu quase toda a confiança. Levantar da cama já exige esforço.</p><strong>Penalidades:</strong><ul><li>–2 em testes de Vontade.</li><li>–1 em todos os testes sociais.</li><li>Sempre que iniciar um combate, faça um teste de Vontade. Em caso de falha, receba +1 Tensão imediatamente.</li></ul>' },
+  { level: 0, status: 'Quebrado', effect: '<p>Você perdeu completamente a esperança. Seu corpo ainda está vivo, mas sua vontade de continuar desapareceu.</p><strong>Penalidades:</strong><ul><li>–2 em todos os testes mentais.</li><li>Não pode fornecer auxílio em testes sociais.</li><li>Sempre que presenciar uma situação traumática, faça um teste de Vontade. Em caso de falha, sofra imediatamente os efeitos do estágio máximo de Tensão.</li></ul><p>Um personagem Quebrado ainda pode lutar, mas apenas por instinto ou desespero.</p>' }
+];
+
+setTimeout(() => {
+  const moralSection = document.getElementById('moral');
+  if (moralSection) {
+    moralSection.innerHTML = `
+      <h3>Moral</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“A comida mantém seu corpo vivo. A esperança mantém você caminhando.”</p>
+      <p>A Moral representa a força emocional, a esperança e a determinação de um sobrevivente diante do colapso da civilização. Ela reflete sua capacidade de continuar lutando mesmo após perdas, fracassos e situações desesperadoras.</p>
+      <p>Diferente da Tensão, que mede o estresse imediato durante momentos de perigo, a Moral representa o estado emocional acumulado ao longo dos dias. Ela muda lentamente e costuma ser influenciada pelas decisões do grupo, pela qualidade de vida no abrigo e pelos acontecimentos da campanha.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Moral, variando entre 0 e 5. Ao contrário das demais mecânicas de sobrevivência, quanto <strong>maior</strong> o nível, <strong>melhor</strong> é a Moral do personagem.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${moralLevels.map(m => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${m.level}</strong></div>
+            <div class="st-desc"><strong>${m.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DA MORAL</p>
+          <p>Confira os benefícios da esperança e as penalidades do desespero.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleMoralBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="moralDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${moralLevels.map(m => `
+          <div class="sd-card">
+            <h5>Nível ${m.level} — ${m.status}</h5>
+            <div style="font-size: 0.95em;">${m.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Moral Aumenta</h3>
+      <p>A Moral não é restaurada apenas descansando. Ela depende de experiências positivas e da sensação de que ainda existe esperança. Exemplos de situações que podem aumentar a Moral:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 2fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Efeito sugerido</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Descansar em um abrigo seguro</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Comer uma refeição completa em grupo</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Resgatar sobreviventes</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Concluir uma missão importante</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Derrotar uma grande ameaça</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Discurso inspirador de um aliado</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral (1x/dia)</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Celebrar uma conquista significativa</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1 Moral</div></div>
+      </div>
+      <p><small><em>O Mestre decide quando essas situações realmente justificam um aumento.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Moral Diminui</h3>
+      <p>A Moral costuma cair lentamente, mas acontecimentos marcantes podem abalá-la rapidamente. Exemplos:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 2fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Efeito sugerido</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Passar fome por vários dias</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Sofrer desidratação severa</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Permanecer exausto por muito tempo</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Perder um abrigo importante</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Ver um aliado morrer</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Abandonar inocentes</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Fracassar em uma missão decisiva</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Permanecer isolado por muitos dias</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–1 Moral</div></div>
+      </div>
+      <p><small><em>Esses efeitos não devem ocorrer repetidamente pelo mesmo evento, evitando punições excessivas.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Outras Regras e Interações</h3>
+      <p>A Moral conecta o estado emocional de todos e dá relevância a classes que não focam apenas no combate físico:</p>
+      
+      <h4>Moral Coletiva</h4>
+      <p>Além da Moral individual, o Mestre pode acompanhar a Moral do grupo. Ela representa o clima entre os sobreviventes. Uma Moral coletiva elevada facilita cooperação, confiança, liderança e decisões difíceis. Já uma Moral baixa pode gerar discussões, deserções, conflitos internos e desobediência de NPCs. Essa regra é opcional, mas funciona muito bem em campanhas focadas na administração de comunidades.</p>
+
+      <h4>Moral e Liderança</h4>
+      <p>Personagens especializados em liderança possuem papel fundamental. Habilidades da classe Líder, talentos sociais e discursos inspiradores podem recuperar Moral mesmo em situações difíceis. Isso torna personagens de suporte tão importantes quanto combatentes.</p>
+
+      <h4>Moral e Sobrevivência</h4>
+      <p>As demais mecânicas influenciam diretamente a Moral. Fome prolongada reduz a esperança, Sede aumenta o desânimo, Sono insuficiente torna todos mais irritados, Infecção faz o grupo temer pela vida de seus companheiros e Tensão elevada por vários dias pode reduzir a Moral. Dessa forma, cuidar das necessidades básicas também significa preservar a saúde emocional do grupo.</p>
+
+      <h4>Recuperando a Moral</h4>
+      <p>A Moral não volta automaticamente com o tempo. Ela é restaurada por momentos de segurança, convivência e esperança, como dormir em camas de verdade, ouvir música, comemorar vitórias, reencontrar familiares, concluir objetivos importantes, realizar refeições especiais e receber notícias positivas. Esses momentos lembram aos sobreviventes que ainda existe algo pelo qual vale a pena continuar vivendo.</p>
+
+      <h4>Eventos Traumáticos</h4>
+      <p>Alguns acontecimentos podem afetar profundamente qualquer personagem, independentemente de sua experiência — como matar um familiar infectado, perder um companheiro de longa data, assistir à destruição do próprio abrigo ou presenciar um massacre. O Mestre pode reduzir a Moral imediatamente nesses casos, reforçando o peso emocional da narrativa.</p>
+
+      <div class="callout info" style="margin-top: 24px;">
+        <strong>🧠 Moral vs. Tensão</strong>
+        <p>Embora relacionadas, essas mecânicas possuem funções diferentes. Moral representa a esperança e a determinação construídas ao longo da campanha. Tensão representa o estresse e o medo do momento.</p>
+        <p style="margin-top: 8px;">É perfeitamente possível que um personagem tenha <strong>Moral alta e Tensão alta</strong>: ele ainda acredita que pode sobreviver, mas está completamente pressionado durante um combate. Da mesma forma, alguém pode ter <strong>Tensão baixa e Moral baixa</strong>: está calmo naquele instante, porém perdeu a vontade de continuar lutando. Essa separação permite representar melhor os aspectos psicológicos da sobrevivência.</p>
+      </div>
+    `;
+
+    const toggleMoralBtn = document.getElementById('toggleMoralBtn');
+    const moralDetailsWrapper = document.getElementById('moralDetailsWrapper');
+    if (toggleMoralBtn && moralDetailsWrapper) {
+      const setMoralVisibility = collapsed => {
+        moralDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleMoralBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleMoralBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-moral-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-moral-desc') === 'collapsed';
+      setMoralVisibility(isCollapsed);
+      
+      toggleMoralBtn.addEventListener('click', () => {
+        setMoralVisibility(moralDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 500);
+
+// ==========================================
+// SEÇÃO DE SOBREVIVÊNCIA: TENSÃO
+// ==========================================
+const tensaoLevels = [
+  { level: 0, status: 'Calmo', effect: '<p>Você se sente seguro e mantém total controle sobre suas ações.</p><strong>Efeitos:</strong> Nenhuma penalidade.<p><em>Este é o estado normal de um personagem descansado e fora de perigo.</em></p>' },
+  { level: 1, status: 'Alerta', effect: '<p>Seus sentidos estão atentos e seu corpo começa a se preparar para reagir.</p><strong>Efeitos:</strong> Nenhuma penalidade mecânica.<p><em>Este nível funciona como um aviso de que a pressão está aumentando.</em></p>' },
+  { level: 2, status: 'Tenso', effect: '<p>O perigo começa a afetar sua concentração. Suas mãos ficam inquietas, sua respiração acelera e decisões simples exigem mais esforço.</p><strong>Efeitos:</strong><ul><li>–1 em testes de Vontade.</li><li>–1 em testes de Intuição e Investigação realizados sob pressão.</li></ul>' },
+  { level: 3, status: 'Nervoso', effect: '<p>Você está visivelmente abalado. Sons repentinos provocam sustos e qualquer ameaça parece mais perigosa do que realmente é.</p><strong>Efeitos:</strong><ul><li>–2 em testes de Vontade.</li><li>–1 em testes de Inteligência e Pontaria.</li><li>Não pode escolher 10 ou realizar ações que exijam calma absoluta.</li><li>Sempre que sofrer um evento traumático, faça um Teste de Controle.</li></ul>' },
+  { level: 4, status: 'Em Pânico', effect: '<p>Seu corpo reage antes de sua mente. Você sente dificuldade para respirar, pensar e controlar seus movimentos.</p><strong>Efeitos:</strong><ul><li>–2 em todos os testes mentais e em testes de Pontaria.</li><li>–2 em testes sociais, exceto Intimidação.</li><li>Não pode realizar reações ou manobras que exijam concentração.</li><li>Sempre que sofrer dano, ficar cercado ou presenciar uma morte violenta, faça um Teste de Controle. Em caso de falha, sofre uma <strong>Reação de Pânico</strong>.</li></ul>' },
+  { level: 5, status: 'Colapso', effect: '<p>A pressão ultrapassou seus limites. Você perde momentaneamente o controle sobre suas ações.</p><strong>Efeitos:</strong><ul><li>–5 em testes mentais.</li><li>Não pode fornecer auxílio a aliados.</li><li>Não recupera Adrenalina enquanto permanecer neste nível.</li><li>No início de cada turno durante uma cena perigosa, faça um Teste de Controle. Em caso de falha, o personagem sofre uma <strong>Reação de Colapso</strong>.</li></ul><p>Após resolver a reação, sua Tensão permanece no nível 5 até que ele consiga se afastar do perigo ou receba ajuda.</p>' }
+];
+
+setTimeout(() => {
+  const tensaoSection = document.getElementById('tensao');
+  if (tensaoSection) {
+    tensaoSection.innerHTML = `
+      <h3>Tensão</h3>
+      <p class="class-tagline" style="font-style: italic; border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 24px;">“Você pode se acostumar com os mortos. O problema é quando começa a ouvir um deles respirando atrás de você.”</p>
+      <p>A Tensão representa o acúmulo de medo, ansiedade e estresse durante situações perigosas. Ela aumenta quando o personagem presencia horrores, fica cercado, enfrenta ameaças superiores ou acredita que está prestes a morrer.</p>
+      <p>Enquanto níveis baixos mantêm o sobrevivente alerta, níveis elevados comprometem seu raciocínio e podem provocar reações de pânico. A Tensão normalmente diminui quando o personagem encontra segurança, recebe apoio ou tem tempo para se acalmar.</p>
+
+      <h4>Funcionamento</h4>
+      <p>Cada personagem possui um Nível de Tensão, variando entre 0 e 5. Quanto maior o nível, mais próximo o personagem está de perder o controle.</p>
+
+      <div class="skills-table" style="margin: 20px 0;">
+        <div class="st-header" style="grid-template-columns: 80px 1fr;">
+          <div class="st-level">Nível</div>
+          <div class="st-desc">Estado</div>
+        </div>
+        ${tensaoLevels.map(t => `
+          <div class="st-row" style="grid-template-columns: 80px 1fr;">
+            <div class="st-level"><strong>${t.level}</strong></div>
+            <div class="st-desc"><strong>${t.status}</strong></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="catalog-heading" style="margin-top: 36px;">
+        <div>
+          <p class="eyebrow">ESTÁGIOS DA TENSÃO</p>
+          <p>Confira os efeitos práticos de cada nível de estresse e medo.</p>
+        </div>
+        <button class="catalog-toggle" id="toggleTensaoBtn" type="button" aria-expanded="true">Ocultar estágios</button>
+      </div>
+
+      <div id="tensaoDetailsWrapper" class="skill-desc-grid" style="margin-top: 20px; animation: fadeIn 0.3s ease-out;">
+        ${tensaoLevels.map(t => `
+          <div class="sd-card">
+            <h5>Nível ${t.level} — ${t.status}</h5>
+            <div style="font-size: 0.95em;">${t.effect}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como a Tensão Aumenta</h3>
+      <p>A Tensão aumenta quando o personagem enfrenta situações de perigo, medo ou pressão emocional.</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 3fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Aumento sugerido</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Ouvir uma ameaça próxima sem conseguir localizá-la</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Ser surpreendido por um inimigo</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Entrar em combate estando ferido</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Ficar isolado em uma área perigosa</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Ser cercado por infectados</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Presenciar uma morte violenta</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Ver um aliado cair a 0 PV</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Sofrer uma mordida ou ferimento possivelmente infectado</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Encontrar uma criatura ou mutação aterrorizante</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">+1 ou +2</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Perder um aliado próximo</strong></div><div class="tt-col" style="color: #ff1744; font-weight: bold;">+2</div></div>
+        <div class="tt-row" style="grid-template-columns: 3fr 1fr;"><div class="tt-col"><strong>Acreditar que não existe rota de fuga</strong></div><div class="tt-col" style="color: #ff1744; font-weight: bold;">+2</div></div>
+      </div>
+      <p><small><em>A mesma fonte normalmente não aumenta a Tensão mais de uma vez por cena, a menos que a situação piore significativamente.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Teste de Controle</h3>
+      <p>Sempre que uma regra exigir um Teste de Controle, o personagem deve realizar um teste de Vontade. A dificuldade depende da gravidade da situação:</p>
+      <div class="talents-table" style="margin-bottom: 16px;">
+        <div class="tt-header" style="grid-template-columns: 2fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">CD sugerida</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Ameaça inquietante</strong></div><div class="tt-col tt-col-muted">10</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Perigo evidente</strong></div><div class="tt-col tt-col-muted">15</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Situação aterrorizante</strong></div><div class="tt-col tt-col-muted">20</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Horror extremo</strong></div><div class="tt-col tt-col-muted">25</div></div>
+      </div>
+      <ul style="margin: 0 0 24px 20px; color: var(--muted);">
+        <li><strong>Sucesso:</strong> o personagem mantém o controle e age normalmente.</li>
+        <li><strong>Falha:</strong> sofre uma Reação de Pânico ou Colapso, conforme seu nível de Tensão.</li>
+        <li><strong>Falha por 5 ou mais:</strong> além da reação, recebe +1 Tensão.</li>
+      </ul>
+
+      <h4>Reações de Pânico (Nível 4)</h4>
+      <p>Quando o personagem falha em um Teste de Controle no nível 4, role 1d6 ou escolha a reação mais adequada à cena:</p>
+      <div class="talents-table" style="margin-bottom: 16px;">
+        <div class="tt-header" style="grid-template-columns: 80px 1fr;">
+          <div class="tt-col">1d6</div>
+          <div class="tt-col">Reação</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>1</strong></div><div class="tt-col"><strong>Congelar:</strong> O personagem perde sua próxima ação, incapaz de tomar uma decisão.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>2</strong></div><div class="tt-col"><strong>Fugir:</strong> O personagem deve utilizar seu próximo movimento para se afastar da principal fonte de perigo pela rota mais segura disponível.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>3</strong></div><div class="tt-col"><strong>Gritar:</strong> O personagem grita involuntariamente, revelando sua posição e podendo atrair inimigos próximos.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>4</strong></div><div class="tt-col"><strong>Derrubar:</strong> O personagem deixa cair um item que esteja segurando. Se estiver usando uma arma, ela é o item derrubado.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>5</strong></div><div class="tt-col"><strong>Agir por impulso:</strong> O personagem ataca, corre ou realiza uma ação precipitada. O Mestre escolhe uma atitude coerente com a ameaça imediata.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>6</strong></div><div class="tt-col"><strong>Entrar em choque:</strong> O personagem sofre –2 adicional em todos os testes até o final de seu próximo turno.</div></div>
+      </div>
+
+      <h4 style="margin-top: 24px;">Reações de Colapso (Nível 5)</h4>
+      <p>No nível 5, as reações são mais graves. Role 1d6 ou escolha uma consequência adequada:</p>
+      <div class="talents-table" style="margin-bottom: 24px;">
+        <div class="tt-header" style="grid-template-columns: 80px 1fr;">
+          <div class="tt-col">1d6</div>
+          <div class="tt-col">Colapso</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>1</strong></div><div class="tt-col"><strong>Paralisia:</strong> O personagem perde o turno atual e o próximo.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>2</strong></div><div class="tt-col"><strong>Fuga desesperada:</strong> O personagem tenta abandonar a cena, ignorando perigos menores e ordens de aliados.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>3</strong></div><div class="tt-col"><strong>Agressividade:</strong> O personagem ataca a ameaça mais próxima. Caso não exista uma ameaça clara, pode empurrar ou ameaçar alguém que tente impedi-lo.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>4</strong></div><div class="tt-col"><strong>Desorientação:</strong> O personagem não diferencia corretamente direções, rotas ou ameaças. Até o final da cena, sofre –5 em Percepção e não pode fornecer informações táticas.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>5</strong></div><div class="tt-col"><strong>Crise emocional:</strong> O personagem chora, grita ou entra em hiperventilação. Ele fica incapaz de realizar ações complexas até receber auxílio ou passar em um novo teste de Vontade.</div></div>
+        <div class="tt-row" style="grid-template-columns: 80px 1fr;"><div class="tt-col"><strong>6</strong></div><div class="tt-col"><strong>Desmaio:</strong> O personagem fica inconsciente por 1d4 rodadas. O Mestre pode evitar este resultado quando o desmaio significaria morte automática sem qualquer possibilidade de reação.</div></div>
+      </div>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Como Reduzir a Tensão</h3>
+      <p>A Tensão diminui quando o personagem consegue se afastar do perigo e recuperar o controle emocional:</p>
+      <div class="talents-table" style="margin-bottom: 20px;">
+        <div class="tt-header" style="grid-template-columns: 2fr 1fr;">
+          <div class="tt-col">Situação</div>
+          <div class="tt-col">Redução</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Passar dez minutos em segurança</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Receber primeiros socorros ou apoio emocional</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Encerrar uma ameaça importante</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Realizar uma refeição tranquila</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Dormir em um abrigo seguro</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–2</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Participar de um momento de lazer ou convivência</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Utilizar uma habilidade de liderança ou inspiração</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 2fr 1fr;"><div class="tt-col"><strong>Consumir medicamento calmante</strong></div><div class="tt-col tt-col-muted">Variável</div></div>
+      </div>
+      <p><small><em>Um personagem não pode reduzir a Tensão enquanto estiver sendo perseguido, atacado ou exposto diretamente à fonte que provocou o estresse.</em></small></p>
+
+      <h4>Acalmar um Aliado</h4>
+      <p>Um personagem pode tentar acalmar outro sobrevivente utilizando uma ação completa e realizando um teste de Diplomacia, Medicina ou outra perícia apropriada. A CD é igual a <strong>10 + o dobro do nível atual de Tensão do alvo</strong>.</p>
+      <ul style="margin: 8px 0 24px 20px; color: var(--muted);">
+        <li><strong>Sucesso:</strong> o alvo reduz sua Tensão em 1.</li>
+        <li><strong>Sucesso por 5 ou mais:</strong> reduz em 2.</li>
+        <li><strong>Falha:</strong> nenhuma mudança.</li>
+      </ul>
+      <p><small><em>Cada personagem só pode receber esse benefício uma vez por cena.</em></small></p>
+
+      <hr style="margin: 40px 0; border: none; border-top: 1px dashed var(--line);" />
+
+      <h3>Outras Regras de Tensão</h3>
+      <p>O estresse se conecta a todas as outras regras do jogo:</p>
+      
+      <h4>Tensão e Moral</h4>
+      <p>Tensão e Moral representam aspectos diferentes do estado psicológico: Tensão mede o estresse imediato, enquanto Moral mede esperança e determinação a longo prazo. Um personagem com Moral alta resiste melhor ao pânico, enquanto alguém com Moral baixa pode entrar em colapso com mais facilidade.</p>
+      <div class="talents-table" style="margin: 16px 0;">
+        <div class="tt-header" style="grid-template-columns: 1fr 1fr;">
+          <div class="tt-col">Moral</div>
+          <div class="tt-col">Modificador em Testes de Controle</div>
+        </div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>5</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+2</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>4</strong></div><div class="tt-col" style="color: #81c784; font-weight: bold;">+1</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>3</strong></div><div class="tt-col tt-col-muted">+0</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>2</strong></div><div class="tt-col" style="color: #ffb74d; font-weight: bold;">–1</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>1</strong></div><div class="tt-col" style="color: #ff5252; font-weight: bold;">–2</div></div>
+        <div class="tt-row" style="grid-template-columns: 1fr 1fr;"><div class="tt-col"><strong>0</strong></div><div class="tt-col" style="color: #ff1744; font-weight: bold;">–3</div></div>
+      </div>
+      <p><small><em>Se um personagem terminar três dias consecutivos com Tensão 4 ou 5, perde 1 ponto de Moral.</em></small></p>
+
+      <h4>Tensão e Sono</h4>
+      <p>A privação de sono reduz o controle emocional. Enquanto estiver no nível 3 ou superior de Sono, o personagem recebe –1 em Testes de Controle. Nos níveis 4 e 5 de Sono, essa penalidade aumenta para –2.</p>
+
+      <h4>Tensão e Combate</h4>
+      <p>O combate é uma das principais fontes de Tensão, mas ela não deve aumentar a cada rodada. O Mestre deve aplicá-la quando algo relevante acontecer (ex: grupo emboscado, inimigo rompe barricada, munição acaba, aliado cai, nova horda aparece, rota de fuga bloqueada). Isso mantém a mecânica importante sem tornar seu controle excessivamente repetitivo.</p>
+
+      <h4>Tensão e Adrenalina</h4>
+      <p>A Tensão pode estimular o corpo temporariamente, mas cobra um preço. Uma vez por cena, quando alcançar o nível 3 ou superior, o personagem pode receber <strong>1 Ponto de Adrenalina temporário</strong>. Esse ponto deve ser utilizado até o final da cena. Depois que a cena terminar, o personagem recebe +1 Tensão. Caso já esteja no nível 5, perde 1 ponto de Moral em vez disso.</p>
+
+      <div class="callout info" style="margin-top: 20px;">
+        <strong>🧩 Traumas Prolongados (Marcas Traumáticas)</strong>
+        <p>Sobreviventes expostos repetidamente a situações extremas podem desenvolver traumas duradouros. Quando um personagem alcançar o nível 5 de Tensão três vezes durante a mesma aventura, o Mestre pode atribuir uma Marca Traumática (ex: medo de lugares fechados, pavor de ficar sozinho, aversão a hospitais, pesadelos recorrentes, reação agressiva a sons, dificuldade para confiar em desconhecidos).</p>
+        <p style="margin-top: 8px;">Marcas Traumáticas não devem retirar o controle do jogador constantemente. Elas funcionam como complicações narrativas e podem conceder Tensão adicional quando seus gatilhos aparecem. Com descanso prolongado, segurança, apoio de aliados ou tratamento adequado, uma Marca Traumática pode ser superada.</p>
+      </div>
+
+      <h4>Tensão Coletiva</h4>
+      <p>Em cenas envolvendo comunidades, multidões ou grandes grupos de sobreviventes, o Mestre pode acompanhar uma única Tensão coletiva. Quando ela aumenta, NPCs podem discutir, desobedecer ordens, entrar em pânico, abandonar posições, desperdiçar recursos ou causar tumultos. Personagens com habilidades de liderança podem reduzir a Tensão coletiva por meio de discursos, organização e demonstrações de segurança.</p>
+
+      <div class="callout warning" style="margin-top: 24px; background: rgba(255, 152, 0, 0.1); border-color: #ff9800;">
+        <strong style="color: #ffb74d;">🎲 Orientação ao Mestre</strong>
+        <p>A Tensão deve criar escolhas e consequências, não servir apenas para impedir jogadores de agir. Evite exigir testes a todo momento. Utilize a mecânica quando existir uma ameaça real, uma revelação assustadora ou uma mudança importante na cena.</p>
+        <p style="margin-top: 8px;">Também é recomendável permitir que o jogador interprete sua própria reação sempre que possível. A tabela de pânico deve ser utilizada quando ele desejar um resultado aleatório ou quando a situação justificar uma perda temporária de controle.</p>
+      </div>
+    `;
+
+    const toggleTensaoBtn = document.getElementById('toggleTensaoBtn');
+    const tensaoDetailsWrapper = document.getElementById('tensaoDetailsWrapper');
+    if (toggleTensaoBtn && tensaoDetailsWrapper) {
+      const setTensaoVisibility = collapsed => {
+        tensaoDetailsWrapper.style.display = collapsed ? 'none' : '';
+        toggleTensaoBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleTensaoBtn.textContent = collapsed ? 'Exibir estágios' : 'Ocultar estágios';
+        localStorage.setItem('t20-tensao-desc', collapsed ? 'collapsed' : 'expanded');
+      };
+      
+      const isCollapsed = localStorage.getItem('t20-tensao-desc') === 'collapsed';
+      setTensaoVisibility(isCollapsed);
+      
+      toggleTensaoBtn.addEventListener('click', () => {
+        setTensaoVisibility(tensaoDetailsWrapper.style.display !== 'none');
+      });
+    }
+  }
+}, 550);
